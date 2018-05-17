@@ -1,0 +1,19 @@
+<view class="body">
+
+  <view class="header">
+    <image class="logo-img" src="{{ixdcLogoIc}}"></image>
+    <text class="login-hint">{{unLoginTxt}}</text>
+  </view>
+
+  <view class='login-info'>
+    <input class='login-input' auto-focus='true' placeholder='{{usernameHint}}' placeholder-class='placeholder-input'></input>
+    <view class='border-line'></view>
+    <input class='login-input' password='true' placeholder='{{passwordHint}}' placeholder-class='placeholder-input'></input>
+  </view>
+
+  <button class='login-btn'>{{loginTxt}}
+  </button>
+
+
+
+</view>

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="body">
+  <view class="header">
+    <image class="logo-img" src="{{ixdcLogoIc}}"></image>
+    <text class="login-hint">{{unLoginTxt}}</text>
+  </view>
+
+  <view class='item'>
+    <image src='{{printImg}}' mode='aspectFit'></image>
+    <text>{{printTxt}}</text>
+  </view>
+
+  <view class='item'>
+    <image src='{{signInImg}}' mode= 'aspectFit'></image>
+    <text>{{signInTxt}}</text>
+  </view>
+</view>
