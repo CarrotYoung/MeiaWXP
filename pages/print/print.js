@@ -1,8 +1,16 @@
 var selectPrinter = '选择打印机'
+var printerName = '打印机-01'
+var scanQrHint = '点击扫码开始打印'
+var scanQrTxt = '扫码'
 
 Page({  
   data: {
     selectPrinter: selectPrinter,
+    printerName: printerName,
+    arrowDown: getApp().globalData.arrowDown,
+    scanQrHint: scanQrHint,
+    scanQrIc: getApp().globalData.scanQr,
+    scanQrTxt: scanQrTxt,
   },
 
   /**

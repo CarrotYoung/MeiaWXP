@@ -4,10 +4,23 @@
     <text>{{selectPrinter}}</text>
     <picker>
       <view class='selector-detail'>
-        <text></text>
-        <icon></icon>
+        <text>{{printerName}}</text>
+        <image src='{{arrowDown}}'></image>
       </view>
     </picker>
   </view>
+
+  <view class='scan-hint'>
+    <text>{{scanQrHint}}</text>
+  </view>
+
+  <view class='scan-background'>
+    <view class='scan-button'>
+      <image src='{{scanQrIc}}'></image>
+      <text>{{scanQrTxt}}</text>
+    </view>
+  </view>
+  
+  
 
 </view>
