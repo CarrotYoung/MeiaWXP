@@ -35,8 +35,8 @@ App({
   },
   globalData: { // 小程序全局
     userInfo: null,
-    ixdcLogoIc: '../../icons/logo.png',
-    arrowDown: '../../icons/arrow_down.png',
-    scanQr: '../../icons/scan_qr.png',
+    ixdcLogoIc: '/icons/logo.png',
+    arrowDown: '/icons/arrow_down.png',
+    scanQr: '/icons/scan_qr.png',
   }
 })

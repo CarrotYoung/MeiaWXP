@@ -15,7 +15,7 @@
   </view>
 
   <view class='scan-background'>
-    <view class='scan-button'>
+    <view class='scan-button' bindtap='scanQr'>
       <image src='{{scanQrIc}}'></image>
       <text>{{scanQrTxt}}</text>
     </view>

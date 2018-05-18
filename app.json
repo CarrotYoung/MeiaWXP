@@ -1,14 +1,15 @@
 {
-  "pages":[ 
-    "pages/print/print",
+  "pages": [
+    "pages/print/prePrint/prePrint",
     "pages/index/index",
     "pages/login/login",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/print/toPrint/toPrint"
   ],
-  "window":{ 
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "美啊",
-    "navigationBarTextStyle":"black"    
+    "navigationBarTextStyle": "black"
   }
 }
