@@ -1,0 +1,26 @@
+.select-printer {
+  height: 188rpx;
+  width: 100%;
+  background-color: white;
+}
+
+.select-printer text {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000000;
+  letter-spacing: 0;
+  position: relative;
+  top: 20rpx;
+  margin-left: 5%;
+}
+
+.select-printer .selector-detail {
+  height: 76rpx;
+  width: 90%;
+  background: #FFFFFF;
+  border: 2rpx solid #FE0000;
+  border-radius: 4rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40rpx;
+}
