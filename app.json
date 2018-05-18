@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/print/toPrint/toPrint",
     "pages/print/prePrint/prePrint",
     "pages/index/index",
     "pages/login/login",
-    "pages/logs/logs",
-    "pages/print/toPrint/toPrint"
+    "pages/logs/logs"    
   ],
   "window": {
     "backgroundTextStyle": "light",
