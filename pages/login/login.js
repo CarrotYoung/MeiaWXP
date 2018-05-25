@@ -82,11 +82,11 @@ Page({
     var value = e.detail.value
     if (classify == 'username') {
       this.setData({
-        username: 'yanggh@meia.me'
+        username: ''
       })
     } else if (classify == 'password') {
       this.setData({
-        password: '125964'
+        password: ''
       })
     }
   },

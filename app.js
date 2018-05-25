@@ -34,12 +34,17 @@ App({
     })
   },
   url: {
+    api: 'https://meia.me/',
     loginAPI: 'https://u.meia.me/api/act/user/login',
+    printerList: 'https://meia.me//api/act/printerlist',
   },
   globalData: { // 小程序全局
     userInfo: null,
     ixdcLogoIc: '/icons/logo.png',
     arrowDown: '/icons/arrow_down.png',
     scanQr: '/icons/scan_qr.png',
+
+    printIc: '/icons/print_green',
+    signIc: '/icons/sign_in.png',
   }
 })

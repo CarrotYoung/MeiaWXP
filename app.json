@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/print/prePrint/prePrint",
     "pages/login/login",
     "pages/print/toPrint/toPrint",
-    "pages/print/prePrint/prePrint",
     "pages/index/index",
     "pages/logs/logs"    
   ],

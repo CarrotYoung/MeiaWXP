@@ -13,11 +13,36 @@ Page({
     scanQrTxt: scanQrTxt,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    this.getAvailablePrinter()
+  },
+
+  getAvailablePrinter: function (e) {
+    var url = getApp().url.printerList
+    var token = wx.getStorageSync('token')
+    var userid = wx.getStorageSync('userid')
+    url += '?token=' + token + '&userid=' + userid
+    function success(data) {
+      var printer = wx.getStorageSync('print')
+      if (printer) {
+        for (var i in data.data) {
+          var item = data.data[i]
+          if (printer == item) {
+            that.setData({
+              index: i
+            })
+          }
+        }
+      } else if (data.data.length > 0) {
+        printer = data.data[0]
+        wx.setStorageSync('print', printer)
+      }
+      that.setData({
+        printerlist: data.data,
+        defaultprinter: printer
+      })
+    }
+    app.util.sendRequest(url, success)
   },
 
   /**
