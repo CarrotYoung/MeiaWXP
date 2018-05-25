@@ -33,6 +33,9 @@ App({
       }
     })
   },
+  url: {
+    loginAPI: 'https://u.meia.me/api/act/user/login',
+  },
   globalData: { // 小程序全局
     userInfo: null,
     ixdcLogoIc: '/icons/logo.png',

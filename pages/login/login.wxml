@@ -6,12 +6,13 @@
   </view>
 
   <view class='login-info'>
-    <input class='login-input' auto-focus='true' placeholder='{{usernameHint}}' placeholder-class='placeholder-input'></input>
+    <input class='login-input' focus bindinput='infoInput' confirm-type="next"
+    bindconfirm="focusNext" placeholder='{{usernameHint}}' placeholder-class='placeholder-input'></input>
     <view class='border-line'></view>
-    <input class='login-input' password='true' placeholder='{{passwordHint}}' placeholder-class='placeholder-input'></input>
+    <input class='login-input' focus="{{focusPassword}}" password='true' bindinput='infoInput' placeholder='{{passwordHint}}' placeholder-class='placeholder-input' confirm-type="go" bindconfirm="login"></input>
   </view>
 
-  <button class='login-btn'>{{loginTxt}}
+  <button class='login-btn' bindtap='login'>{{loginTxt}}
   </button>
 
 
