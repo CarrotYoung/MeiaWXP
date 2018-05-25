@@ -72,27 +72,16 @@ Page({
   },
 
   infoInput: function(e) {
-    this.setData({
-      username: 'yanggh@meia.me'
-    })
-    this.setData({
-      password: '125964'
-    })
-    var classify = e.currentTarget.dataset.class
-    var value = e.detail.value
-    if (classify == 'username') {
-      this.setData({
-        username: ''
-      })
-    } else if (classify == 'password') {
-      this.setData({
-        password: ''
-      })
+    console.log(e)
+    if (e.target.id == 'usernameInput') {
+      this.data.username = e.detail.value
+    } else {
+      this.data.password = e.detail.value
     }
   },
 
   login: function (e) {
-    console.log('url====' + this.data.username + this.data.password)
+    console.log('username:' + this.data.username + '-----pwd:'+this.data.password)
     // 用户名或者密码有一个为空就不响应点击
     if (!this.data.username || !this.data.password) {
       return

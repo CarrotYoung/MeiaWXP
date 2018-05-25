@@ -44,7 +44,7 @@ App({
     arrowDown: '/icons/arrow_down.png',
     scanQr: '/icons/scan_qr.png',
 
-    printIc: '/icons/print_green',
+    printIc: '/icons/print_green.png',
     signIc: '/icons/sign_in.png',
   }
 })

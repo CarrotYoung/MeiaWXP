@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/print/prePrint/prePrint",
     "pages/login/login",
+    "pages/print/prePrint/prePrint",
     "pages/print/toPrint/toPrint",
     "pages/index/index",
     "pages/logs/logs"    
