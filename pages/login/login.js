@@ -72,7 +72,6 @@ Page({
   },
 
   infoInput: function(e) {
-    console.log(e)
     if (e.target.id == 'usernameInput') {
       this.data.username = e.detail.value
     } else {

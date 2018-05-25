@@ -5,12 +5,12 @@
     <text class="login-hint">{{unLoginTxt}}</text>
   </view>
 
-  <view class='item'>
+  <view class='item' bindtap='toPrintCert'>
     <image src='{{printImg}}' mode='aspectFit'></image>
     <text>{{printTxt}}</text>
   </view>
 
-  <view class='item'>
+  <view class='item' bindtap='toSignin'>
     <image src='{{signInImg}}' mode= 'aspectFit'></image>
     <text>{{signInTxt}}</text>
   </view>

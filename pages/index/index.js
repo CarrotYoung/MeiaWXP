@@ -8,5 +8,16 @@ Page({
     signInImg: getApp().globalData.signIc,
     printTxt: printTxt,
     signInTxt: signInTxt
+  },
+
+  toPrintCert: function(){
+    wx.redirectTo({
+      url: '../print/prePrint/prePrint'
+    })
+  },
+  toSignin: function() {
+    wx.redirectTo({
+      url: '../print/prePrint'
+    })
   }
 })
