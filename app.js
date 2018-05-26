@@ -1,5 +1,7 @@
 //app.js
 App({
+  util: require('utils/util'),
+  
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

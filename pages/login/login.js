@@ -128,15 +128,15 @@ Page({
 
 
   onLoad: function () {
-    // wx.authorize({
-    //   scope: 'scope.userInfo',
-    // })
-    // var token = wx.getStorageSync('token')
-    // var userid = wx.getStorageSync('userid')
-    // if (token && userid) {
-    //   wx.redirectTo({
-    //     url: '../index/index'
-    //   })
-    // }
+    wx.authorize({
+      scope: 'scope.userInfo',
+    })
+    var token = wx.getStorageSync('token')
+    var userid = wx.getStorageSync('userid')
+    if (token && userid) {
+      wx.redirectTo({
+        url: '../index/index'
+      })
+    }
   }
 })

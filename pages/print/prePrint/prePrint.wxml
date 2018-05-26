@@ -2,7 +2,7 @@
 
   <view class='select-printer'>
     <text>{{selectPrinter}}</text>
-    <picker>
+    <picker range='{{printerList}}' mode='selector' >
       <view class='selector-detail'>
         <text>{{printerName}}</text>
         <image src='{{arrowDown}}'></image>
