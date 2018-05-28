@@ -7,17 +7,20 @@ module.exports = {
 
 function sendRequest(url, success, complete, obj, method) {
   var methodType = method || 'POST'
+  console.log('请求方法=' + methodType)
   wx.showLoading({
     title: '加载中..',
   })
   // 自动给url加上域名前缀
-  if (url && url.indexOf('https://meia.me/')) {
-    console.log(url)
-  }
+  // if (url && url.indexOf('https://meia.me/')) {
+  //   console.log(url)
+  // }
 
-  if (url && url.indexOf('?') <1 ) {
-    url += '?token=' + wx.getStorageSync('token') + '&userid=' + wx.getStorageSync('userid')
-  }
+  // if (url && url.indexOf('?') <1 ) {
+  //   url += '?token=' + wx.getStorageSync('token') + '&userid=' + wx.getStorageSync('userid')
+  // }
+
+  console.log('请求url--'+url)
 
   wx.request({
     url: url,
@@ -34,6 +37,7 @@ function sendRequest(url, success, complete, obj, method) {
       var data = res.data
       if (res.data.code == 0) {
         success(data)
+
       } else if (res.data.code == 2) {
         console.log("登录失效, 请重新登录")
         wx.setStorageSync('token', '')
