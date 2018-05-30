@@ -1,19 +1,19 @@
 <view class='body'>
 
   <view  class='header-search-box'>
-    <input class="header-input" confirm-type='search' placeholder-style='color:gray' placeholder='输入编号搜索'>
+    <input class="header-input" confirm-type='search' placeholder-style='color:gray' placeholder='输入名称搜索' bindinput='searchValueInput'>
     </input> 
   </view>  
 
 
   <view class='sign-status-view'>
     <view class='sign-status-inter-view'>
-      <text class='allNum-text'> 全部: {{allNum}}</text>
-      <text class='signNum-text' > 已签到: {{signNum}}</text> 
-      <text class='unsignNum-text'> 未签到: {{unsignNum}}</text> 
+      <text class='allNum-text' bindtap='selectTap' id='allNum'> 全部: {{allNum}}</text>
+      <text class='signNum-text' bindtap='selectTap' id='signNum'> 已签到: {{signNum}}</text> 
+      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' > 未签到: {{unsignNum}}</text> 
       <view class='center-left-line'></view>    
       <view class='center-right-line'></view> 
-      <view class='bottom-line'></view>   
+      <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>   
     </view>
   </view>
 
@@ -23,7 +23,7 @@
         <view class='list-item' id="{{item.id}}">
             <text class="name-text">{{item.name}}</text>
             <text class="title-text">{{item.title}}</text> 
-            <text class="date-text">{{item.date}}</text>  
+            <text class="date-text" style='color:{{item.dateColor}}; top:{{item.indexTop}}rpx'>{{item.date}}</text>  
         </view> 
     </block> 
 

@@ -41,7 +41,11 @@ App({
     api: 'https://meia.me/',
     loginAPI: 'https://u.meia.me/api/act/user/login',
     printerList: 'https://meia.me//api/act/printerlist',
-    signScheduleList:'http://edu.meia.me/act/app/schedule/listJson'
+    signScheduleList:'http://edu.meia.me/act/app/schedule/listJson', //日程列表
+    // scheduleDetail:'http://edu.meia.me/act/app/schedule/detailJson', //签到详情
+    scheduleAttendList:'http://edu.meia.me/act/app/schedule/attendeeListJson',//签到列表
+    scheduleSign:'http://edu.meia.me/act/app/schedule/signJson?scheduleId=23&attendeeId=1&signCount=0'  //签到
+
   },
   globalData: { // 小程序全局
     userInfo: null,

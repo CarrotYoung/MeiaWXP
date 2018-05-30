@@ -39,12 +39,12 @@ function sendRequest(url, success, complete, obj, method) {
         success(data)
 
       } else if (res.data.code == 2) {
-        console.log("登录失效, 请重新登录")
-        wx.setStorageSync('token', '')
-        wx.setStorageSync('userid', '')
-        wx.redirectTo({
-          url: '../../login/login',
-        })
+        // console.log("登录失效, 请重新登录")
+        // wx.setStorageSync('token', '')
+        // wx.setStorageSync('userid', '')
+        // wx.redirectTo({
+        //   url: '../../login/login',
+        // })
       } else {
         wx.showToast({
           title: res.data.msg

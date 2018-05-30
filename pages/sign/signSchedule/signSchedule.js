@@ -62,11 +62,21 @@ Page({
     var room = listArr[index].room;
     console.log("输入id="+id);
     console.log("输入room=" + room);
-    wx.navigateTo({
-      url: '/pages/sign/sign/sign' + "?id=" + id + '&room=' + room
-      // url: '../../../pages/sign/signDetail/signDetail'
+    var dataDic = listArr[index];
+    var signStatus = dataDic.signStatus;
+    signStatus = '已结束'
+    if (signStatus == '已结束'){
+      wx.navigateTo({
+        url: '../../../pages/sign/signDetail/signDetail' + "?dataDic=" + JSON.stringify(dataDic)
+      })
+    }else {
 
-    })
+      wx.navigateTo({
+        url: '/pages/sign/sign/sign' + "?dataDic=" + JSON.stringify(dataDic)
+      })
+
+    }
+    
     this.hiddenOptionTap()
     console.log(index);
 
@@ -136,10 +146,11 @@ Page({
        roomType = '圆桌';
      }
 
-     var dic = {"room": dataDic.session, "signStatus": signStatus, "title": dataDic.theme, "roomType": roomType, "id":dataDic.id};
+     var dic = { "room": dataDic.session, "signStatus": signStatus, "title": dataDic.theme, "roomType": roomType, "id": dataDic.id, "buyNum": dataDic.buyNum, "signCount": dataDic.signCount};
      listArr.push(dic)
-
      }
+
+
     //  console.log("输出列表")
     //  console.log(listArr)
      that.setData({
@@ -160,7 +171,6 @@ Page({
         title: '请求失败',
       })}
 
-    
     getApp().util.sendRequest(url, success, "","",'GET')
 
 

@@ -2,7 +2,9 @@
 
 .header-search-box {
   background-color: white;
+  margin: auto;
   height: 98rpx;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -14,7 +16,7 @@
   position: relative;
   margin-left: 10rpx;
   margin-right:10rpx;
-  width: 100%;
+  width: 90%;
   height: 80%;
   background-color: #fff;
   text-align: center;
@@ -82,7 +84,6 @@
   left: 10%;
   bottom: 15%;
   border-radius: 100px;
-
  }
  
 /* .unsignNum-text{
@@ -104,7 +105,7 @@
   overflow: hidden; 
   box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06);
   height: 200rpx;
-  /* display: flex; */
+  /* display: flex;  */
   background-color: white;
   /* box-sizing:  */
 }
@@ -135,10 +136,11 @@
 .date-text{
  font-family: PingFangSC-Regular;
  font-size: 26rpx;
- color: #999999;
- width: 103rpx;
+ color: #999999; 
+ width: 300rpx;
  height: 37rpx;
- position: absolute;
+ position: absolute; 
  right: 20rpx;
  top: 30rpx;
+ text-align: right;
 }
