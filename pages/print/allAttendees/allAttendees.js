@@ -1,16 +1,11 @@
-var selectPrinter = '选择打印机'
-var printerName = '打印机-01'
-var scanQrHint = '点击扫码开始打印'
-var scanQrTxt = '扫码'
+// pages/print/allAttendees/allAttendees.js
+Page({
 
-Page({  
+  /**
+   * 页面的初始数据
+   */
   data: {
-    selectPrinter: selectPrinter,
-    printerName: printerName,
-    arrowDown: getApp().globalData.arrowDown,
-    scanQrHint: scanQrHint,
-    scanQrIc: getApp().globalData.scanQr,
-    scanQrTxt: scanQrTxt,
+  
   },
 
   /**
@@ -67,18 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  scanQr: function () {
-    wx.scanCode({
-      onlyFromCamera: true,
-      scanType: ['qrCode'],
-      success: function (res) { 
-        console.log(res)
-      },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
   }
-
-  
 })

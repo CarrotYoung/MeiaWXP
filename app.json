@@ -4,7 +4,8 @@
     "pages/print/prePrint/prePrint",
     "pages/print/toPrint/toPrint",
     "pages/index/index",
-    "pages/logs/logs"    
+    "pages/logs/logs",
+    "pages/print/allAttendees/allAttendees"
   ],
   "window": {
     "backgroundTextStyle": "light",
