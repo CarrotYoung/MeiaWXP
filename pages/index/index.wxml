@@ -10,7 +10,8 @@
     <text>{{printTxt}}</text>
   </view>
 
-  <view class='item' bindtap='toSignin'>
+
+  <view class='item' bindtap='signClick'>
     <image src='{{signInImg}}' mode= 'aspectFit'></image>
     <text>{{signInTxt}}</text>
   </view>

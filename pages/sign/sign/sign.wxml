@@ -1,0 +1,43 @@
+<!--pages/sign/sign/sign.wxml-->
+<!-- <text>pages/sign/sign/sign.wxml</text> -->
+<view class='body'>
+  <view class='list-item' id="{{item.id}}">
+          <view class='list-item-leftView'>
+              <text class="room-text">{{roomNum}}</text>
+              <text class="sign-status-text">{{signStatus}}</text> 
+          </view>
+          <view class='list-item-rightView'>
+            <view clsss="" style=' width:90%;'>
+               <text class="room-type-text">{{roomName}}</text> 
+               <text class="title-text">{{activityTitle}}</text> 
+            </view>
+          </view>
+  </view>
+
+  <view class='sign-status-view'>
+    <view class='sign-status-inter-view'>
+      <text class='allNum-text'> 全部: {{allNum}}</text>
+      <text class='signNum-text' > 已签到: {{signNum}}</text> 
+      <text class='unsignNum-text'> 未签到: {{unsignNum}}</text> 
+      <view class='center-left-line'></view>    
+       <view class='center-right-line'></view>    
+    </view>
+   </view> 
+
+   
+  <view class='scan-bottom-view'>
+     <view class='scan-hint'>
+      <text>{{scanQrHint}}</text>
+     </view>  
+
+     <view class='scan-background'>
+       <view class='scan-button' bindtap='scanQr'>
+           <image src='{{scanQrIc}}'></image>   
+           <text>{{scanQrTxt}}</text>   
+       </view>  
+    </view>  
+  
+  </view>
+  
+
+</view>
