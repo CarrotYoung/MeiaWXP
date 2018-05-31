@@ -28,6 +28,7 @@ Page({
     
 
   },
+
   // 点击下拉列表
   optionTap(e) {
     let index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
@@ -96,7 +97,9 @@ Page({
   //签到日程列表
   getScheduleList: function (session){
     var that = this
-    var url = getApp().url.signScheduleList +'?activityId='+1
+    var userid = wx.getStorageSync('userid')
+
+    var url = getApp().url.signScheduleList + '?activityId=' + 1 + '&userId=' + userid
     console.log(url)
     console.log('session='+session)
     if(session){
