@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
 
     var dataDic = JSON.parse(options.dataDic);
-    var id = dataDic.id;   //日程id
+    id = dataDic.id;   //日程id
     var room = dataDic.room;
     console.log("dataDic================" + JSON.stringify(dataDic))
     var title = room + '场签到'
@@ -49,7 +49,7 @@ Page({
     if(attendName){
       url += '&attendeeName=' + attendName;
     }
-
+    listArr.splice(0, listArr.length);//清空数组 
     function success(result) {
 
       var dataArr = result.data.actAttendeeVOList;
@@ -104,6 +104,9 @@ Page({
 
   selectTap:function(e){
     var left = 0
+    //数组筛选
+    var tempArr = new Array();
+    tempArr = listArr;
     
     if(e.target.id == 'allNum'){
         left = 0.1;
@@ -119,10 +122,22 @@ Page({
     console.log('left='+left)
 
     if (lastTap != e.target.id){
+
       lastTap = e.target.id;
+      if (e.target.id != 'allNum') {
+
+        if (e.target.id == 'signNum'){
+          tempArr = listArr.filter((item) => { return item.date != '未签到'});
+        }else{
+          tempArr = listArr.filter((item) => { return item.date == '未签到' });
+        }
+
+      }
+
       this.setData({
-        btmLineLeft: left * 100
-        
+        btmLineLeft: left * 100,
+        list: tempArr
+
       })
 
 

@@ -127,6 +127,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+  
   scanQr: function () {
     wx.scanCode({
       onlyFromCamera: true,
@@ -135,7 +136,12 @@ Page({
         console.log(res)
       },
       fail: function (res) { },
-      complete: function (res) { },
+      complete: function (res) { 
+
+      console.log('扫码完成了--')
+      console.log(res.result)
+
+      },
     })
   }
 })

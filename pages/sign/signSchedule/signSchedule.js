@@ -64,7 +64,7 @@ Page({
     console.log("输入room=" + room);
     var dataDic = listArr[index];
     var signStatus = dataDic.signStatus;
-    signStatus = '已结束'
+    // signStatus = '已结束'
     if (signStatus == '已结束'){
       wx.navigateTo({
         url: '../../../pages/sign/signDetail/signDetail' + "?dataDic=" + JSON.stringify(dataDic)
@@ -76,7 +76,7 @@ Page({
       })
 
     }
-    
+
     this.hiddenOptionTap()
     console.log(index);
 
@@ -103,7 +103,7 @@ Page({
       url += '&session='+session
       console.log('url进来了='+url)
     }
-
+    listArr.splice(0, listArr.length);//清空数组 
     function success(result) {
     //  console.log('打印结果='+result.data)
     //  console.log('打印结果')
@@ -193,7 +193,7 @@ Page({
     this.getScheduleList(session)
   },
 
-//输入聚焦
+  //输入聚焦
   inputFocus: function(){
     this.hiddenOptionTap()
   },

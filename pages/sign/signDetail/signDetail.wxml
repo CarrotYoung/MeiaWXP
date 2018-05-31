@@ -24,7 +24,7 @@
             <text class="name-text">{{item.name}}</text>
             <text class="title-text">{{item.title}}</text> 
             <text class="date-text" style='color:{{item.dateColor}}; top:{{item.indexTop}}rpx'>{{item.date}}</text>  
-        </view> 
+        </view>  
     </block> 
 
   </scroll-view> 
