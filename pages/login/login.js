@@ -102,16 +102,15 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
+        wx.hideLoading()
         var data = res.data
         if (data.code == 0) {
-          wx.hideLoading()
           wx.setStorageSync('token', data.token)
           wx.setStorageSync('userid', data.userid)
           wx.redirectTo({
             url: '../index/index'
           })
         } else {
-          wx.hideLoading()
           this.setData({
             msg: data.msg
           })
@@ -128,9 +127,9 @@ Page({
 
 
   onLoad: function () {
-    // wx.authorize({
-    //   scope: 'scope.userInfo',
-    // })
+    wx.authorize({
+      scope: 'scope.userInfo',
+    })
     var token = wx.getStorageSync('token')
     var userid = wx.getStorageSync('userid')
     if (token && userid) {

@@ -39,6 +39,7 @@ App({
   },
   url: {
     api: 'https://meia.me/',
+    listAttendees: 'https://meia.me/api/act/attendee/list',
     loginAPI: 'https://u.meia.me/api/act/user/login',
     printerList: 'https://meia.me//api/act/printerlist',
     signScheduleList:'http://edu.meia.me/act/app/schedule/listJson', //日程列表
@@ -59,6 +60,5 @@ App({
     resultSuccess:'/icons/result_success.png',
     resultWarning:'/icons/result_warning.png',
     resultFail:'icons/result_fail.png'
-
   }
 })

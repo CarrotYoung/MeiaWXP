@@ -5,9 +5,8 @@ module.exports = {
   compareTime: compareTime
 }
 
-function sendRequest(url, success, complete, obj, method) {
-  var methodType = method || 'POST'
-  console.log('请求方法=' + methodType)
+function sendRequest(url, suc, obj,  method) {
+  
   wx.showLoading({
     title: '加载中..',
   })
@@ -16,19 +15,24 @@ function sendRequest(url, success, complete, obj, method) {
   //   console.log(url)
   // }
 
-  // if (url && url.indexOf('?') <1 ) {
-  //   url += '?token=' + wx.getStorageSync('token') + '&userid=' + wx.getStorageSync('userid')
-  // }
+  if ((url && url.indexOf('token') <1) || (obj && !obj.token)) {
+    if (!obj) obj = {}
+    obj.token = wx.getStorageSync('token')
+    obj.userid = wx.getStorageSync('userid')
+  }
+
+  method = method || 'GET'
 
   console.log('请求url--'+url)
+  console.log(obj)
 
   wx.request({
     url: url,
+    method: method,
     data: obj,
-    method: methodType, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     header: {// 设置请求的 header
-      'content-type': 'application/json',
-      'weiapp': 'IXDC'
+      'content-type': 'application/json'
+      // 'weiapp': 'IXDC'
     },
     success: function (res) {
       wx.hideLoading()
@@ -36,7 +40,7 @@ function sendRequest(url, success, complete, obj, method) {
       console.log('请求成功' + url + '\n' + JSON.stringify(res));
       var data = res.data
       if (res.data.code == 0) {
-        success(data)
+        suc(data)
 
       } else if (res.data.code == 2) {
         // console.log("登录失效, 请重新登录")

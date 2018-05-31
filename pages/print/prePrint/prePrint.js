@@ -112,6 +112,11 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+  },
+  toAllAttendees: function(){
+    wx.redirectTo({
+      url: '../allAttendees/allAttendees'
+    })
   }
 
   

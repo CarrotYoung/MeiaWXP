@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/print/allAttendees/allAttendees",
     "pages/index/index",
     "pages/sign/signResult/signResult",
     "pages/sign/sign/sign",
@@ -8,7 +9,6 @@
     "pages/sign/signDetail/signDetail",
     "pages/print/toPrint/toPrint",
     "pages/logs/logs",
-    "pages/print/allAttendees/allAttendees",
     "pages/print/prePrint/prePrint"
   ],
   "window": {
