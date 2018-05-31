@@ -1,0 +1,45 @@
+<view class='body'>
+
+  <view class="header">
+
+    <view class="header-btn" catchtap='selectTap'> 
+        <text>{{selectList[index]}}</text>  
+        <image src="{{arrowImg}}"></image>  
+    </view> 
+    
+      <view class="header-input-wrapper">
+        <input class="header-input" confirm-type='search' placeholder-style='color:gray' placeholder='输入编号搜索' bindinput='searchValueInput' bindfocus='inputFocus'>
+        </input>
+      </view>
+  </view>
+  
+   <scroll-view scroll-y="true" class='sign-list'>
+       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class='list-item' id='{{item.id}}'  bindtap ='rowTap' data-index="{{index}}">
+          <view class='list-item-leftView'>
+              <text class="room-text">{{item.room}}</text>
+              <text class="sign-status-text">{{item.signStatus}}</text> 
+          </view>
+          <view class='list-item-rightView'>
+            <view clsss="" style=' width:90%;'>
+              <text class="room-type-text">{{item.roomType}}</text> 
+              <text class="title-text">{{item.title}} </text>  
+            </view>
+             <image class='list-right-arrow-img' src='{{rightArrowImg}}'></image> 
+          </view>
+        </view>
+      </block>  
+  </scroll-view>  
+
+   <!-- <view class='bottom-view'>
+      <text class='allNum-text'> 全部: {{allNum}}</text>
+      <text class='signNum-text'> 已签到: {{signNum}}</text> 
+      <text class='unsignNum-text'> 未签到: {{unsignNum}}</text> 
+  </view>  -->
+
+   <view class='option-box' style='height:{{show?selectList.length*80:0}}rpx;'>
+    <text class='option-text' style='{{index==selectList.length-1&&"border:0;"}};{{index==0&&"color:#45BC00;"}}' wx:for='{{selectList}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}
+    </text>
+  </view> 
+
+</view>

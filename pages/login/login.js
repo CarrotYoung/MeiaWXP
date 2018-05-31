@@ -5,27 +5,22 @@ var passwordHint = '密码'
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    // 页面的初始数据
     ixdcLogoIc: getApp().globalData.ixdcLogoIc,
     unLoginTxt: unLoginTxt,
     usernameHint: usernameHint,
     passwordHint: passwordHint,
-    loginTxt: loginTxt
+    loginTxt: loginTxt,
+
+    focusPassword: false,
+
+    username: '',
+    password: '',
+    msg: '',
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
     
   },
@@ -70,5 +65,78 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  focusNext: function() {
+    this.setData({ focusPassword: true})
+  },
+
+  infoInput: function(e) {
+    if (e.target.id == 'usernameInput') {
+      this.data.username = e.detail.value
+    } else {
+      this.data.password = e.detail.value
+    }
+  },
+
+  login: function (e) {
+    console.log('username:' + this.data.username + '-----pwd:'+this.data.password)
+    // 用户名或者密码有一个为空就不响应点击
+    if (!this.data.username || !this.data.password) {
+      return
+    }
+
+    var url = getApp().url.loginAPI
+    url += '?password=' + this.data.password + '&name=' + this.data.username
+    
+    console.log('url===='+url)
+    wx.showLoading({
+      title: '登录中..',
+    })
+    this.setData({
+      msg: ''
+    })
+    wx.request({
+      url: url,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var data = res.data
+        if (data.code == 0) {
+          wx.hideLoading()
+          wx.setStorageSync('token', data.token)
+          wx.setStorageSync('userid', data.userid)
+          wx.redirectTo({
+            url: '../index/index'
+          })
+        } else {
+          wx.hideLoading()
+          this.setData({
+            msg: data.msg
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败',
+        })
+      },
+    })
+  },
+
+
+  onLoad: function () {
+    // wx.authorize({
+    //   scope: 'scope.userInfo',
+    // })
+    var token = wx.getStorageSync('token')
+    var userid = wx.getStorageSync('userid')
+    if (token && userid) {
+      wx.redirectTo({
+        url: '../index/index'
+      })
+    }
   }
 })

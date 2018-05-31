@@ -1,0 +1,92 @@
+.select-printer {
+  height: 188rpx;
+  width: 100%;
+  background-color: white;
+}
+
+.select-printer text {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000000;
+  letter-spacing: 0;
+  position: relative;
+  top: 20rpx;
+  margin-left: 5%;
+}
+
+.select-printer .selector-detail {
+  height: 76rpx;
+  width: 90%;
+  border: 2rpx solid #C4CBD2;
+  border-radius: 4rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40rpx;
+}
+
+.selector-detail text {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666;
+  letter-spacing: 0;
+  position: relative;
+  top: 10rpx;
+}
+
+.selector-detail image {
+  width: 16rpx;
+  height: 10rpx;
+  position: relative;
+  margin-left: 70%;
+  top: 5.5rpx;
+}
+
+.scan-hint {
+  width: 100%;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #666666;
+  margin-top: 18%;
+}
+
+.scan-background {
+  display: flex;
+  background-color: #D1EEC0;
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 170rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-button {
+  width: 300rpx;
+  height: 300rpx;
+  background: #45BC00;
+  border-radius: 150rpx;
+  text-align: center;
+}
+
+.scan-button image {
+  width: 55rpx;
+  height: 51rpx;
+  margin-top: 100rpx;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: 35rpx;
+}
+
+.scan-button text {
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  margin-top: 155rpx;
+  position: relative;
+  top: 50rpx;
+  right: 26rpx;
+}

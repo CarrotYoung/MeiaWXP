@@ -1,0 +1,23 @@
+<!--pages/sign/signResult.wxml-->
+<!-- <text>pages/sign/signResult.wxml</text> -->
+
+<view class='body'>
+
+  <view class='sign-result'>
+     <image class='sign-img' src='{{signImg}}' ></image>
+     <text class='sign-text'>签到{{statusText}}</text> 
+  </view>
+
+  <view class='sign-name-view'>
+     <text class='name'>{{name}}</text>
+     <text class='title'>{{title}}</text>
+  </view> 
+
+   <view class='sign-btn' bindtap='scanQr'>继续签到</view> 
+  
+   <!-- <view class='sign-number'>签到记录({{signNum}})</view> -->
+
+</view>
+
+
+
