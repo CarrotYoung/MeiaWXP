@@ -8,9 +8,9 @@
 
   <view class='sign-status-view'>
     <view class='sign-status-inter-view'>
-      <text class='allNum-text' bindtap='selectTap' id='allNum'> 全部: {{allNum}}</text>
-      <text class='signNum-text' bindtap='selectTap' id='signNum'> 已签到: {{signNum}}</text> 
-      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' > 未签到: {{unsignNum}}</text> 
+      <text class='allNum-text' bindtap='selectTap' id='allNum'> 全部: {{100}}</text>
+      <text class='signNum-text' bindtap='selectTap' id='signNum'> 已签到: {{0}}</text> 
+      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' > 未签到: {{100}}</text> 
       <view class='center-left-line'></view>    
       <view class='center-right-line'></view> 
       <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>   

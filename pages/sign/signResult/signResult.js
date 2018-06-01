@@ -1,5 +1,6 @@
 // pages/sign/signResult.js
-var title = "签到成功"
+var signTitle = ""
+var dataDic = {};
 
 Page({
 
@@ -19,24 +20,89 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    dataDic = JSON.parse(options.dataDic);
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //设置导航栏
-    wx.setNavigationBarTitle({
-      title: title
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    this.uploadAttendUserInfo();
   
+  },
+
+  //上传用户数据验证是否合法
+  uploadAttendUserInfo: function(){
+    var that = this
+    var userid = wx.getStorageSync('userid')
+    var url = getApp().url.signCheck + '?scheduleId=' + dataDic.scheduleId + '&userId=' + userid + '&attendeeId=' + dataDic.attendeeId + '&signCount=' + dataDic.signCount; //dataDic.signCount
+    function success(result) {
+
+      var dic = result.data;
+      console.log('签到结果=');
+      console.log(dic);
+
+      var name = dic.actAttendee.name;
+      var positionTitle = dic.actAttendee.company + dic.actAttendee.position;
+      var  statusText = ''  //签到状态
+      var  signImg = ''     //签到状态图片
+      // dic.status = 2
+      if (dic.status == 1) { //签到成功
+       
+        if (dic.signCount == 1)
+        {
+          statusText = '成功'
+          signImg = getApp().globalData.resultSuccess
+        }else
+        {
+          statusText = '多次'
+          signImg = getApp().globalData.resultWarning
+        }
+        
+      } else{
+        statusText = '失败'
+        signImg = getApp().globalData.resultFail
+
+      }
+
+
+      that.setData({
+        statusText: statusText,
+        signImg: signImg,
+        name: name,
+        title: positionTitle,
+      });
+
+      signTitle = '签到' + statusText
+
+      //设置导航栏
+      wx.setNavigationBarTitle({
+        title: '签到' + statusText
+      })
+
+     
+
+    }
+
+    function fail() {
+      wx.hideLoading()
+      wx.showToast({
+        title: '请求失败',
+      })
+    }
+
+    getApp().util.sendRequest(url, success, "", "", 'POST')
+
+
   },
 
   /**

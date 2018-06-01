@@ -44,8 +44,8 @@ App({
     signScheduleList:'http://edu.meia.me/act/app/schedule/listJson', //日程列表
     // scheduleDetail:'http://edu.meia.me/act/app/schedule/detailJson', //签到详情
     scheduleAttendList:'http://edu.meia.me/act/app/schedule/attendeeListJson',//签到列表
-    scheduleSign:'http://edu.meia.me/act/app/schedule/signJson?scheduleId=23&attendeeId=1&signCount=0'  //签到
-
+    scheduleSign:'http://edu.meia.me/act/app/schedule/signJson?scheduleId=23&attendeeId=1&signCount=0', //签到
+    signCheck:'http://edu.meia.me/act/app/schedule/signJson'   //签到校验
   },
   globalData: { // 小程序全局
     userInfo: null,
@@ -58,7 +58,7 @@ App({
     signIc: '/icons/sign_in.png',
     resultSuccess:'/icons/result_success.png',
     resultWarning:'/icons/result_warning.png',
-    resultFail:'icons/result_fail.png'
+    resultFail:'/icons/result_fail.png'
 
   }
 })

@@ -5,6 +5,8 @@ var roomNum = "A6"
 var activityTitle = "行为设计下半场行为设计下半场行为设计下半"
 var scanQrHint = '点击扫码开始签到'
 var scanQrTxt = '扫码'
+var id = 0
+var listArr = new Array()
 
 
 Page({
@@ -29,7 +31,7 @@ Page({
   onLoad: function (options) {
 
     var dataDic = JSON.parse(options.dataDic);
-    var id = dataDic.id;
+    id = dataDic.id;
     var room = dataDic.room;
     console.log("dataDic================" + JSON.stringify(dataDic))
     var title = room + '场签到'
@@ -50,22 +52,27 @@ Page({
       unsignNum: unsignNum
     });
 
-    //获取网络数据
-    this.getSignListData(id);
-
   },
 
   //拉取签到数据
   getSignListData: function (id, attendeeName) {
-
+    var that = this
     var userid = wx.getStorageSync('userid')
     var url = getApp().url.scheduleAttendList + '?scheduleId=' + id + '&userId=' + userid;
     function success(result) {
-     var dataArr =  result.data
+      
+    var dataBaseDic = result.data.scheduleBaseVO
+    listArr = result.data.actAttendeeVOList;  //签到列表
+    console.log("网络数据请求");
+    console.log(listArr);
 
-     console.log("网络数据请求");
-     console.log(dataArr)
+    var unsignNum = dataBaseDic.buyNum - dataBaseDic.signCount;
 
+    that.setData({
+      allNum: dataBaseDic.buyNum,
+      signNum: dataBaseDic.signCount,
+      unsignNum: unsignNum
+     });
     }
 
     function fail() {
@@ -76,7 +83,6 @@ Page({
     }
 
     getApp().util.sendRequest(url, success, "", "", 'GET')
-
 
   },
 
@@ -91,6 +97,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    //获取网络数据
+    this.getSignListData(id);
 
   },
 
@@ -130,18 +139,42 @@ Page({
   },
   
   scanQr: function () {
+
     wx.scanCode({
       onlyFromCamera: true,
       scanType: ['qrCode'],
       success: function (res) {
-        console.log(res)
+       console.log(res)
+
+       var tempDic = listArr.filter((item) => { return item.id == 23 });
+       var signCount = tempDic.signCount + 1;
+
+      //  var dataDic = {
+      //   'scheduleId':20,  //扫码得到
+      //   'attendeeId':514,
+      //   'signCount':22,
+      //   'listArr':listArr
+      //  };
+
+      //   wx.navigateTo({
+      //     url: '../../../pages/sign/signResult/signResult' + "?dataDic=" + JSON.stringify(dataDic)
+      //   })
       },
       fail: function (res) { },
       complete: function (res) { 
 
-      console.log('扫码完成了--')
-      console.log(res.result)
+        var dataDic = {
+        'scheduleId':20,  //扫码得到
+        'attendeeId':514,
+        'signCount':22,
+        'listArr':listArr
+       };
 
+        wx.navigateTo({
+          url: '../../../pages/sign/signResult/signResult' + "?dataDic=" + JSON.stringify(dataDic)
+        })
+        console.log('扫码完成了--')
+        console.log(res.result)
       },
     })
   }

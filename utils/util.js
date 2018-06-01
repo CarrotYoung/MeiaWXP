@@ -62,6 +62,7 @@ function sendRequest(url, success, complete, obj, method) {
     }
   })
 }
+
 function formatDate(date, format) {
   var v = "";
   if (typeof date == "string" || typeof date != "object") {
