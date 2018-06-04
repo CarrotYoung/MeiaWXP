@@ -45,7 +45,8 @@ Page({
   getSignListData: function (id,attendName) {
 
     var that = this
-    var url = getApp().url.scheduleAttendList + '?scheduleId=' + id;
+    var userid = wx.getStorageSync('userid')
+    var url = getApp().url.scheduleAttendList + '?scheduleId=' + id + '&userId='+userid;
     if(attendName){
       url += '&attendeeName=' + attendName;
     }

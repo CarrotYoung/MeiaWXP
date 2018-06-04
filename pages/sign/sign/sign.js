@@ -57,8 +57,9 @@ Page({
 
   //拉取签到数据
   getSignListData: function (id, attendeeName) {
-  
-    var url = getApp().url.scheduleAttendList + '?scheduleId=' + id;
+
+    var userid = wx.getStorageSync('userid')
+    var url = getApp().url.scheduleAttendList + '?scheduleId=' + id + '&userId=' + userid;
     function success(result) {
      var dataArr =  result.data
 
