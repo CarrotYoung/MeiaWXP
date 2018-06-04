@@ -174,7 +174,7 @@ Page({
         title: '请求失败',
       })}
 
-    getApp().util.sendRequest(url, success, "","",'GET')
+    getApp().util.sendRequest(url, success, "","",'GET',fail)
 
 
   },

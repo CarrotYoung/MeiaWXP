@@ -5,7 +5,7 @@
 
 .sign-result{
   /* background-color: white; */
-  width: 140rpx;
+  width: 180rpx;
   height: 200rpx;
   margin-left: auto;
   margin-right: auto;
@@ -14,7 +14,6 @@
   align-content: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 
@@ -31,7 +30,7 @@
 
 .sign-text{
   position: relative;
-  width: 140rpx;
+  width: 180rpx;
   height: 48rpx;
   text-align: center;
   margin-left: auto;
@@ -64,7 +63,7 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 216rpx;
+  width: 500rpx;
   height: 100rpx;
   font-family: PingFangSC-Semibold;
   font-size: 72rpx;

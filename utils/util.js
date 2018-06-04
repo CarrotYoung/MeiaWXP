@@ -5,7 +5,7 @@ module.exports = {
   compareTime: compareTime
 }
 
-function sendRequest(url, success, complete, obj, method) {
+function sendRequest(url, success, complete, obj, method,fail) {
   var methodType = method || 'POST'
   console.log('请求方法=' + methodType)
   wx.showLoading({
@@ -54,6 +54,7 @@ function sendRequest(url, success, complete, obj, method) {
     fail: function () {
       wx.hideLoading()
       console.log('请求失败' + url)
+      fail()  //网络请求失败
     },
     complete: function () {
       wx.hideLoading()
