@@ -9,7 +9,7 @@ Page({
   data: {
 
     statusText:"成功",
-    signImg: getApp().globalData.resultSuccess,
+    signImg: getApp().icon.resultSuccess,
     name:"李志军",
     title:"腾讯用户研究与体验设计部设计师"
     

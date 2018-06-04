@@ -8,7 +8,7 @@ Page({
   data: {
     selectPrinter: selectPrinter,
     printerName: printerName,
-    arrowDown: getApp().globalData.arrowDown,
+    arrowDown: getApp().icon.arrowDown,
     scanQrHint: scanQrHint,
     scanQrIc: getApp().globalData.scanQr,
     scanQrTxt: scanQrTxt,
