@@ -20,7 +20,7 @@ Page({
 
   getAvailablePrinter: function (e) {
     var that = this
-    var url = getApp().url.printerList
+    var url = getApp().url.listPrinter
     function success(result) {
       // var printer = wx.getStorageSync('print')
       // if (printer) {
@@ -114,7 +114,7 @@ Page({
     })
   },
   toAllAttendees: function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../allAttendees/allAttendees'
     })
   }

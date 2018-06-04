@@ -24,6 +24,13 @@ Page({
     getApp().util.sendRequest(url, success, requestParams)
   },
 
+  itemClick: function(e) {
+    var id = this.target.id
+    wx.navigateTo({
+      url: '../toPrint/toPrint?id=' + id,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

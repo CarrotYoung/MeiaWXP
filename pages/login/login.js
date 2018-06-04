@@ -7,7 +7,7 @@ Page({
 
   data: {
     // 页面的初始数据
-    ixdcLogoIc: getApp().globalData.ixdcLogoIc,
+    ixdcLogoIc: getApp().icon.ixdcLogoIc,
     unLoginTxt: unLoginTxt,
     usernameHint: usernameHint,
     passwordHint: passwordHint,
