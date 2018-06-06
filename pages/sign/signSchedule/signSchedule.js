@@ -5,6 +5,7 @@ let selectList = [
 var index = 0
 var show = false
 var listArr = new Array
+var searchText = ''
 
 Page({
 
@@ -13,11 +14,13 @@ Page({
    */
   data: {
     show: false,
+    headerBtnShow: true,
     arrowImg: getApp().globalData.arrowDown,
     selectList: selectList,
     index: 0,
     rightArrowImg:getApp().globalData.rightArrow
   },
+
   // 点击下拉显示框
   selectTap() {
     this.setData({
@@ -89,10 +92,10 @@ Page({
   onLoad: function (options) {
     // console.log("接受到的参数printTxt=" + options.printTxt);
     console.log("接受到的参数testData=" + options.testData);
-    this.getScheduleList()
-    
-    
+    this.getScheduleList();
   },
+
+   
 
   //签到日程列表
   getScheduleList: function (session){
@@ -126,12 +129,18 @@ Page({
      //结束时间
      var endTimestamp = (new Date(dataDic.endTime)).getTime();
      var signStatus = '';
+     var statusColor = 'red';
      if ( localTimestamp <=startTimestamp){  //未开始
         signStatus ='未开始';
+        var statusColor = 'rgb(69,188,0)';
      } else if ((localTimestamp > startTimestamp) && (localTimestamp <endTimestamp))     {
        signStatus = '进行中';
+       statusColor = 'rgb(0,122,255)'
+
      }else{
        signStatus = '已结束';
+       statusColor = 'rgb(153,153,153)'
+
      }
 
      var roomType = '';
@@ -149,7 +158,7 @@ Page({
        roomType = '圆桌';
      }
 
-     var dic = { "room": dataDic.session, "signStatus": signStatus, "title": dataDic.theme, "roomType": roomType, "id": dataDic.id, "buyNum": dataDic.buyNum, "signCount": dataDic.signCount};
+     var dic = { "room": dataDic.session, "signStatus": signStatus, "title": dataDic.theme, "roomType": roomType, "id": dataDic.id, "buyNum": dataDic.buyNum, "signCount": dataDic.signCount, "statusColor": statusColor};
      listArr.push(dic)
      }
 
@@ -191,14 +200,44 @@ Page({
   searchValueInput: function(e)
   {
     var session = e.detail.value; 
+
     console.log('搜索值');
     console.log(session);
-    this.getScheduleList(session)
+    this.getScheduleList(session);
+
+    this.setData({
+      searchText: session
+    })
   },
 
   //输入聚焦
   inputFocus: function(){
+    var that = this;
     this.hiddenOptionTap()
+    this.setData({
+      headerBtnShow: false
+      
+    })
+
+  },
+
+  wxSearchClear: function(){
+
+    this.setData({
+      searchText: ''
+    })
+
+    this.getScheduleList();
+
+  },
+
+  wxSearchCancel: function(){
+
+    var that = this;
+    this.setData({
+      headerBtnShow: true
+
+    })
   },
 
   /**
