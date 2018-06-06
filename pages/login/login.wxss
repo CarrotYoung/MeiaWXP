@@ -30,16 +30,17 @@
 }
 
 .login-input {
-  width: 100%;
+  width: auto;
   height: 96rpx;
   font-size: 28rpx;
   background-color: #fff;
   color: #999;
+  padding-left: 24rpx;
+  
 }
 
 .placeholder-input {
   color: #999;
-  margin-left: 24rpx;
 }
 
 .login-btn {

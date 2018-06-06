@@ -1,14 +1,19 @@
 {
-  "pages":[ 
-    "pages/print/print",
-    "pages/index/index",
+  "pages": [
     "pages/login/login",
+    "pages/index/index",
+    "pages/sign/signResult/signResult",
+    "pages/sign/sign/sign",
+    "pages/sign/signSchedule/signSchedule",
+    "pages/sign/signDetail/signDetail",
+    "pages/print/toPrint/toPrint",
+    "pages/print/prePrint/prePrint",
     "pages/logs/logs"
   ],
-  "window":{ 
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "美啊",
-    "navigationBarTextStyle":"black"    
+    "navigationBarTextStyle": "black"
   }
 }

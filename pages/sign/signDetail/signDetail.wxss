@@ -1,0 +1,146 @@
+/* pages/sign/signDetail/signDetail.wxss */
+
+.header-search-box {
+  background-color: white;
+  margin: auto;
+  height: 98rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+ .header-input{
+  border: 2rpx solid #EBECF3;
+  box-shadow: inset 0 0 6rpx 0 rgba(0,0,0,0.06);
+  border-radius: 100rpx;
+  position: relative;
+  margin-left: 10rpx;
+  margin-right:10rpx;
+  width: 90%;
+  height: 80%;
+  background-color: #fff;
+  text-align: center;
+} 
+
+
+
+.sign-status-view{
+   position: relative; 
+   top: 1rpx;
+   background-color: white;
+   width: 100%; 
+   height: 90rpx;
+   display: flex; 
+   flex-direction: row;  
+   justify-content: center;     
+ }  
+
+.sign-status-inter-view{
+   background-color: white;
+   width: 90%; 
+   margin-left: 10rpx; 
+   height: 100%;
+   display: flex;
+   flex-direction: row;  
+   justify-content: space-around;  
+
+ }
+
+.allNum-text,.signNum-text,.unsignNum-text{
+  position: relative; 
+  width: 200rpx;
+  height: 40rpx;
+  margin-left: 10rpx; 
+  top: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+  padding: 10rpx 10rpx;
+ }
+
+.center-left-line{
+   position:absolute;
+   left: 31%;
+   top: 36%;
+   width:1rpx;
+   height:27rpx;
+   background-color:#EBECF3; 
+ }
+
+.center-right-line{
+   position:absolute;
+   left: 60%;
+   top: 36%;
+   width:1rpx;
+   height:27rpx;
+   background-color:#EBECF3;
+ }
+
+ .bottom-line{
+  position: absolute;
+  background-color: #45BC00;
+  height: 4rpx;
+  width: 100rpx;
+  left: 10%;
+  bottom: 15%;
+  border-radius: 100px;
+ }
+ 
+/* .unsignNum-text{
+   color: #D82128;
+ } */
+
+.sign-list{
+  height: 90%;
+  width: 100%;
+  margin: auto;
+  margin-top: 40rpx;
+  background-color: whitesmoke;
+  position: relative;
+}
+
+
+.list-item{
+  margin:auto;
+  overflow: hidden; 
+  box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06);
+  height: 200rpx;
+  /* display: flex;  */
+  background-color: white;
+  /* box-sizing:  */
+}
+
+.name-text{
+ position: relative;
+ font-family: PingFangSC-Medium;
+ font-size: 32rpx;
+ color: #333333;
+ width: 100rpx;
+ height: 45rpx;
+ left: 30rpx;
+ top: 30rpx;
+}
+
+.title-text{
+ position: absolute;
+ font-family: PingFangSC-Regular;
+ font-size: 26rpx;
+ color: #333333;
+ width: 200rpx;
+ height: 74rpx;
+ left: 30rpx;
+ margin-top: 90rpx;
+
+}
+
+.date-text{
+ font-family: PingFangSC-Regular;
+ font-size: 26rpx;
+ color: #999999; 
+ width: 300rpx;
+ height: 37rpx;
+ position: absolute; 
+ right: 20rpx;
+ top: 30rpx;
+ text-align: right;
+}

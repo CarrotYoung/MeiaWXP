@@ -1,0 +1,24 @@
+<view class='body'>
+
+  <view class='select-printer'>
+    <text>{{selectPrinter}}</text>
+    <picker range='{{printerList}}' mode='selector' >
+      <view class='selector-detail'>
+        <text>{{printerName}}</text>
+        <image src='{{arrowDown}}'></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class='scan-hint'>
+    <text>{{scanQrHint}}</text>
+  </view>
+
+  <view class='scan-background'>
+    <view class='scan-button' bindtap='scanQr'>
+      <image src='{{scanQrIc}}'></image>
+      <text>{{scanQrTxt}}</text>
+    </view>
+  </view>
+  
+</view>

@@ -1,0 +1,105 @@
+/* pages/sign/signResult.wxss */
+
+
+
+
+.sign-result{
+  /* background-color: white; */
+  width: 180rpx;
+  height: 200rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:158rpx;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.sign-img{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 108rpx;
+  height: 108rpx;
+  /* background-color: white; */
+
+}
+
+
+.sign-text{
+  position: relative;
+  width: 180rpx;
+  height: 48rpx;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #45BC00;
+  letter-spacing: 0;
+  /* background-color: white; */
+
+}
+
+.sign-name-view{
+ position: relative;
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 56rpx;
+ width: 500rpx;
+ height: 220rpx;
+ /* background-color: yellow; */
+ display: flex;
+ justify-content: center;
+ align-content: center;
+ flex-direction: column;
+}
+
+
+.name{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500rpx;
+  height: 100rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 72rpx;
+  color: #333333;
+  letter-spacing: 0;
+  text-align: center;
+
+}
+
+.title{
+  position: relative;
+  margin-top: 10rpx;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+  width: 460rpx;
+  height: 96rpx;
+}
+
+ .sign-btn{
+
+   width: 640rpx;
+   height: 88rpx;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 183rpx;
+   background-color: #45BC00;
+   font-family: PingFangSC-Medium;
+   font-size: 32rpx;
+   line-height: 88rpx;
+   color: #FFFFFF;
+   border-radius: 6rpx;
+   text-align: center;
+
+}

@@ -1,0 +1,14 @@
+<view class='body'>
+
+  <view>
+    <text>{{}}</text>
+    <text>{{}}</text>
+    <text>{{}}</text>
+    <view></view>
+    <text>{{}}</text>
+    <text>{{}}</text>
+  </view>
+
+  <button></button>
+
+</view>

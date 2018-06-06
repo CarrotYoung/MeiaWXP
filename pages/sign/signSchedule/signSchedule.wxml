@@ -1,0 +1,54 @@
+<view class='body'>
+
+  <view class="header">
+
+    <view class="header-btn" id= catchtap='selectTap' style= "display:{{headerBtnShow?'block':'none'}}"> 
+        <text>{{selectList[index]}}</text>  
+        <image src="{{arrowImg}}"></image>  
+    </view> 
+    
+    <view class="header-input-wrapper">
+        <!-- <icon class="icon-search_in-box" type="search" size="18"></icon> -->
+        <input class="header-input" confirm-type='search' placeholder-style='color:gray' placeholder='输入编号搜索' bindinput='searchValueInput' bindfocus='inputFocus' value='{{searchText}}'>
+        </input>
+        <view class="icon-clear" wx:if="{{searchText.length > 0}}" bindtap="wxSearchClear">
+            <icon type="clear" size="18"></icon>
+        </view>
+      </view>
+
+    <view class="header-cancel-btn" bindtap="wxSearchCancel" style= "display:{{headerBtnShow?'none':'block'}}">
+        <text >取消</text>
+    </view>
+
+  </view>
+  
+   <scroll-view scroll-y="true" class='sign-list'>
+       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class='list-item' id='{{item.id}}'  bindtap ='rowTap' data-index="{{index}}">
+          <view class='list-item-leftView'>
+              <text class="room-text" style="color:{{item.statusColor}}" >{{item.room}}</text>
+              <text class="sign-status-text" style="color:{{item.statusColor}}">{{item.signStatus}}</text> 
+          </view>
+          <view class='list-item-rightView'>
+            <view clsss="" style=' width:90%;'>
+              <text class="room-type-text">{{item.roomType}}</text> 
+              <text class="title-text">{{item.title}} </text>  
+            </view>
+             <image class='list-right-arrow-img' src='{{rightArrowImg}}'></image> 
+          </view>
+        </view>
+      </block>  
+  </scroll-view>  
+
+   <!-- <view class='bottom-view'>
+      <text class='allNum-text'> 全部: {{allNum}}</text>
+      <text class='signNum-text'> 已签到: {{signNum}}</text> 
+      <text class='unsignNum-text'> 未签到: {{unsignNum}}</text> 
+  </view>  -->
+
+   <view class='option-box' style='height:{{show?selectList.length*80:0}}rpx;'>
+    <text class='option-text' style='{{index==selectList.length-1&&"border:0;"}};{{index==0&&"color:#45BC00;"}}' wx:for='{{selectList}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}
+    </text>
+  </view> 
+
+</view>
