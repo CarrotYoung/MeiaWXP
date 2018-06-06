@@ -21,7 +21,7 @@ Page({
     activityTitle: activityTitle,
     scanQrHint: scanQrHint,
     scanQrTxt: scanQrTxt,
-    scanQrIc: getApp().globalData.scanQr,
+    scanQrIc: getApp().icon.scanQr,
 
   },
 

@@ -15,10 +15,10 @@ Page({
   data: {
     show: false,
     headerBtnShow: true,
-    arrowImg: getApp().globalData.arrowDown,
+    arrowImg: getApp().icon.arrowDown,
     selectList: selectList,
     index: 0,
-    rightArrowImg:getApp().globalData.rightArrow
+    rightArrowImg: getApp().icon.rightArrow
   },
 
   // 点击下拉显示框
@@ -54,7 +54,7 @@ Page({
   //箭头
   setArrowImg(show){
     this.setData({
-    arrowImg: show ? getApp().globalData.arrowDown : getApp().globalData.arrowUp
+      arrowImg: show ? getApp().icon.arrowDown : getApp().icon.arrowUp
     });
   },
 

@@ -10,8 +10,8 @@ Page({
    */
   data: {
 
-    // statusText:"",
-    // signImg: getApp().globalData.resultSuccess,
+    // statusText:"成功",
+    // signImg: getApp().icon.resultSuccess,
     // name:"李志军",
     // title:"腾讯用户研究与体验设计部设计师"
     
@@ -287,3 +287,4 @@ Page({
   
   }
 })
+

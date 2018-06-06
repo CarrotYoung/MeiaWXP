@@ -8,7 +8,7 @@ Page({
   data: {
     selectPrinter: selectPrinter,
     printerName: printerName,
-    arrowDown: getApp().globalData.arrowDown,
+    arrowDown: getApp().icon.arrowDown,
     scanQrHint: scanQrHint,
     scanQrIc: getApp().globalData.scanQr,
     scanQrTxt: scanQrTxt,
@@ -20,7 +20,7 @@ Page({
 
   getAvailablePrinter: function (e) {
     var that = this
-    var url = getApp().url.printerList
+    var url = getApp().url.listPrinter
     function success(result) {
       // var printer = wx.getStorageSync('print')
       // if (printer) {
@@ -111,6 +111,11 @@ Page({
       },
       fail: function (res) { },
       complete: function (res) { },
+    })
+  },
+  toAllAttendees: function(){
+    wx.navigateTo({
+      url: '../allAttendees/allAttendees'
     })
   }
 

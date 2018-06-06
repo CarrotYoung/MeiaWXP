@@ -7,7 +7,7 @@ Page({
 
   data: {
     // 页面的初始数据
-    ixdcLogoIc: getApp().globalData.ixdcLogoIc,
+    ixdcLogoIc: getApp().icon.ixdcLogoIc,
     unLoginTxt: unLoginTxt,
     usernameHint: usernameHint,
     passwordHint: passwordHint,
@@ -102,16 +102,15 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
+        wx.hideLoading()
         var data = res.data
         if (data.code == 0) {
-          wx.hideLoading()
           wx.setStorageSync('token', data.token)
           wx.setStorageSync('userid', data.userid)
           wx.redirectTo({
             url: '../index/index'
           })
         } else {
-          wx.hideLoading()
           this.setData({
             msg: data.msg
           })
