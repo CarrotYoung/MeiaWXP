@@ -10,6 +10,8 @@ function sendRequest(url, success, complete, obj, method,fail) {
   console.log('请求方法=' + methodType)
   wx.showLoading({
     title: '加载中..',
+
+    
   })
   // 自动给url加上域名前缀
   // if (url && url.indexOf('https://meia.me/')) {

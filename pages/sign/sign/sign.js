@@ -72,6 +72,18 @@ Page({
       signNum: dataBaseDic.signCount,
       unsignNum: unsignNum
      });
+// =======
+//   getSignListData: function (id, attendeeName) {
+
+//     var userid = wx.getStorageSync('userid')
+//     var url = getApp().url.scheduleAttendList + '?scheduleId=' + id + '&userId=' + userid;
+//     function success(result) {
+//      var dataArr =  result.data
+
+//      console.log("网络数据请求");
+//      console.log(dataArr)
+
+// >>>>>>> b96203a56f751a56d41630d6cec097843845f7b1
     }
 
     function fail() {
