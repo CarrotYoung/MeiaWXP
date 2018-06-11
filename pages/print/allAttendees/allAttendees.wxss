@@ -1,5 +1,3 @@
-/* pages/sign/signDetail/signDetail.wxss */
-
 .header-search-box {
   background-color: white;
   margin: auto;
@@ -16,18 +14,16 @@
   position: relative;
   margin-left: 10rpx;
   margin-right:10rpx;
-  width: 90%;
-  height: 80%;
+  width: 702rpx;
+  height: 65rpx;
   background-color: #fff;
   text-align: center;
-} 
-
-
+}
 
 .sign-status-view{
    position: relative; 
    top: 1rpx;
-   background-color: white;
+   background-color: #fff;
    width: 100%; 
    height: 90rpx;
    display: flex; 
@@ -36,9 +32,8 @@
  }  
 
 .sign-status-inter-view{
-   background-color: white;
-   width: 90%; 
-   margin-left: 10rpx; 
+   background-color: #fff;
+   width: 99%; 
    height: 100%;
    display: flex;
    flex-direction: row;  
@@ -46,32 +41,32 @@
 
  }
 
-.allNum-text,.signNum-text,.unsignNum-text{
+.header-tb{
   position: relative; 
-  width: 200rpx;
+  width: 33%;
   height: 40rpx;
-  margin-left: 10rpx; 
   top: 10rpx;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #666666;
   padding: 10rpx 10rpx;
+  text-align: center
  }
 
 .center-left-line{
    position:absolute;
-   left: 31%;
+   left: 33%;
    top: 36%;
-   width:1rpx;
+   width:3rpx;
    height:27rpx;
    background-color:#EBECF3; 
  }
 
 .center-right-line{
    position:absolute;
-   left: 60%;
+   left: 66%;
    top: 36%;
-   width:1rpx;
+   width:3rpx;
    height:27rpx;
    background-color:#EBECF3;
  }
@@ -86,28 +81,21 @@
   border-radius: 100px;
  }
  
-/* .unsignNum-text{
-   color: #D82128;
- } */
-
 .sign-list{
   height: 90%;
   width: 100%;
   margin: auto;
-  margin-top: 40rpx;
+  margin-top: 20rpx;
   background-color: whitesmoke;
-  position: relative;
+  
 }
 
 
 .list-item{
-  margin:auto;
   overflow: hidden; 
   box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06);
   height: 200rpx;
-  /* display: flex;  */
   background-color: white;
-  /* box-sizing:  */
 }
 
 .name-text{
@@ -121,26 +109,27 @@
  top: 30rpx;
 }
 
-.title-text{
+.company-text{
  position: absolute;
  font-family: PingFangSC-Regular;
  font-size: 26rpx;
  color: #333333;
- width: 350rpx;
+ width: auto;
  height: 74rpx;
  left: 30rpx;
  margin-top: 90rpx;
 
 }
 
-.date-text{
+.status-text{
  font-family: PingFangSC-Regular;
  font-size: 26rpx;
  color: #999999; 
- width: 300rpx;
- height: 37rpx;
+ width: auto;
+ height: auto;
  position: absolute; 
  right: 20rpx;
  top: 30rpx;
- text-align: right;
+ display: inline-block;
+ background: #00ff00;
 }

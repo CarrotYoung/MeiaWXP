@@ -20,5 +20,11 @@
       <text>{{scanQrTxt}}</text>
     </view>
   </view>
+
+  <view class='bottom'>
+    <view class='all-attendees' bindtap='toAllAttendees'>
+      <text>所有参会者</text>
+    </view>
+  </view>
   
 </view>

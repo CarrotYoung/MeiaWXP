@@ -1,6 +1,8 @@
 //app.js
 App({
   util: require('utils/util'),
+  url: require('utils/meiaApi'),
+  icon: require('utils/icon'),
   
   onLaunch: function () {
     // 展示本地存储能力
@@ -37,28 +39,7 @@ App({
 
 
   },
-  url: {
-    api: 'https://meia.me/',
-    loginAPI: 'https://u.meia.me/api/act/user/login',
-    printerList: 'https://meia.me//api/act/printerlist',
-    signScheduleList:'http://edu.meia.me/act/app/schedule/listJson', //日程列表
-    // scheduleDetail:'http://edu.meia.me/act/app/schedule/detailJson', //签到详情
-    scheduleAttendList:'http://edu.meia.me/act/app/schedule/attendeeListJson',//签到列表
-    scheduleSign:'http://edu.meia.me/act/app/schedule/signJson?scheduleId=23&attendeeId=1&signCount=0'  //签到
-
-  },
   globalData: { // 小程序全局
     userInfo: null,
-    ixdcLogoIc: '/icons/logo.png',
-    arrowDown: '/icons/arrow_down.png',
-    arrowUp: '/icons/arrow_up.png',
-    rightArrow:'/icons/right_arrow.png',
-    scanQr: '/icons/scan_qr.png',
-    printIc: '/icons/print_green.png',
-    signIc: '/icons/sign_in.png',
-    resultSuccess:'/icons/result_success.png',
-    resultWarning:'/icons/result_warning.png',
-    resultFail:'icons/result_fail.png'
-
   }
 })

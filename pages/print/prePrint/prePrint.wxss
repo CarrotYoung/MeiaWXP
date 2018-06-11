@@ -90,3 +90,26 @@
   top: 50rpx;
   right: 26rpx;
 }
+
+.bottom {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 56rpx;
+}
+
+.all-attendees {
+  width: 256rpx;
+  height: 56rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #EBECF3;
+  border-radius: 100rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.all-attendees text {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+}
