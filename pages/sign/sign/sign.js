@@ -52,6 +52,8 @@ Page({
       unsignNum: unsignNum
     });
 
+    
+
   },
 
   //拉取签到数据
@@ -143,6 +145,15 @@ Page({
   },
 
   /**
+   * 获取字符串的长度
+   */
+  getStrLength: function (str) {
+    ///return str.replace(/[\u0391-\uFFE5]/g,"aa").length;  
+    return str.replace(/[^\x00-\xff]/g, "aa").length;
+  },
+
+
+  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
@@ -151,29 +162,53 @@ Page({
   
   scanQr: function () {
 
+    var that = this;
+
     wx.scanCode({
       onlyFromCamera: true,
       scanType: ['qrCode'],
       success: function (res) { //扫描校验成功了
-      console.log(res)
-      var attendeeId = 532
-      var qrScheduleId  = 2  //扫码得到日程id
-      var signCount = 5;    //签到次数
+
+      var result = res.result
+      var length = that.getStrLength(result)
+      console.log('字符串长度==' + length)
+      var attendeeId = 0
+
+
+      if(length>16&&length<26){
+
+        attendeeId = result.substring(8,length-8)
+
+      }
+
+      console.log('result-----------------------------')
+      console.log(attendeeId)
+      console.log(result)
+
+
+      //var qrScheduleId  = 2  //扫码得到日程id
+      var signCount = 0;    //签到次数
       var signStatus = 0;   //本地验证签到失败或成功 0失败 1成功
       var positionTitle = '';
       var name = ''
       
       var tempArr = listArr.filter((item) => { return item.id == attendeeId});  //检索出存在的用户
       var tempDic = tempArr[0];
-      console.log('扫描校验成功了')
+      console.log('扫描校验成功了--------------------------------')
+      console.log(tempArr)
       console.log(tempDic)
-      console.log(scheduleId)
-      console.log(tempDic.name)
+      // console.log(scheduleId)
+      
 
-      if ((qrScheduleId == scheduleId) && tempDic){  //验证该用户已报名
-        signCount = tempDic.signCount + 1+1;
+      if (tempDic){  //验证该用户已报名
+        signCount = tempDic.signCount + 1;
+        tempDic.signCount = signCount
+        let index = listArr.indexOf(tempDic) 
+        listArr[index] = tempDic
         signStatus = 1;
-        positionTitle = tempDic.company + tempDic.position;
+        name = tempDic.name
+        positionTitle = tempDic.company + tempDic.position;  //某某公司职位
+        console.log(name)
 
       }else{ //没有报名
 
@@ -183,12 +218,12 @@ Page({
       }
 
        var dataDic = {
-        'scheduleId': qrScheduleId,  //扫码得到
+        'scheduleId': scheduleId,  //扫码得到
         'attendeeId': attendeeId,
         'signCount': signCount,
         'listArr':listArr,
         'signStatus': signStatus,
-        'name': tempDic.name, //
+        'name': name, //
         'positionTitle': positionTitle   //positionTitle
        };
 

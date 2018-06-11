@@ -1,6 +1,7 @@
 // pages/sign/signResult.js
 var signTitle = ""
 var dataDic = {};
+var params = {}
 var listArr = new Array();
 
 Page({
@@ -58,12 +59,12 @@ Page({
       if (dataDic.signCount == 1) {
         statusText = '签到成功'
         // signColor = '0x45BC00'
-        signImg = getApp().globalData.resultSuccess
+        signImg = getApp().icon.resultSuccess
 
       } else {
-        statusText = '签到' + (dataDic.signCount + 1) + '次'
+        statusText = '签到' + dataDic.signCount + '次'
         signColor = 'rgb(255,191,0)'  //FFBF00
-        signImg = getApp().globalData.resultWarning
+        signImg = getApp().icon.resultWarning
 
       }
 
@@ -74,7 +75,7 @@ Page({
 
       statusText = '签到失败'
       signColor = 'rgb(254,0,0)'   //'0xFE0000'
-      signImg = getApp().globalData.resultFail
+      signImg = getApp().icon.resultFail
       name = ''
       positionTitle = '未报名该场次'
 
@@ -105,10 +106,24 @@ Page({
   uploadAttendUserInfo: function(){
     var that = this
     var userid = wx.getStorageSync('userid')
+
     var url = getApp().url.signCheck + '?scheduleId=' + dataDic.scheduleId + '&userId=' + userid + '&attendeeId=' + dataDic.attendeeId + '&signCount=' + dataDic.signCount; //dataDic.signCount
+
+    // params.scheduleId = dataDic.scheduleId;
+    // params.attendeeId = dataDic.attendeeId;
+    // params.signCount = dataDic.signCount;
+    // params.userId = userid;
+
+
+    console.log("签到上传的参数======")
+    // console.log(params)
+
+
     function success(result) {
 
       var dic = result.data;
+      var signImg = ''     //签到状态图片
+
       // console.log('签到结果=');
       // console.log(dic);
 
@@ -121,6 +136,8 @@ Page({
       // var signColor = ''
       if (dic.status == 1) { //签到成功
 
+
+        console.log('签到成功了-----------')
         wx.hideLoading()
         wx.showToast({
           title: '提交成功',
@@ -130,7 +147,7 @@ Page({
         {
           // statusText = '签到成功'
           // signColor = '0x45BC00'
-          signImg = getApp().globalData.resultSuccess
+          signImg = getApp().icon.resultSuccess
 
         }else
         {
@@ -147,6 +164,10 @@ Page({
         // signImg = getApp().globalData.resultFail
         // name = ''
         // positionTitle = '未报名该场次'
+
+
+        console.log('签到失败了-----------')
+
 
       }
 
@@ -176,21 +197,47 @@ Page({
       })
 
     }
-
-    getApp().util.sendRequest(url, success, "", "", 'POST')
+    // function sendRequest(url, suc, obj, method, fail) {
+    getApp().util.sendRequest(url, success, params, 'POST',fail)
 
   },
 
+  /**
+     * 获取字符串的长度
+     */
+  getStrLength: function (str) {
+    ///return str.replace(/[\u0391-\uFFE5]/g,"aa").length;  
+    return str.replace(/[^\x00-\xff]/g, "aa").length;
+  },
 
   //继续签到
   scanQr: function () {
+
+    var that = this;
 
     wx.scanCode({
       onlyFromCamera: true,
       scanType: ['qrCode'],
       success: function (res) { //扫描校验成功了
         console.log(res)
-        var attendeeId = 532
+
+        var result = res.result
+        var length = that.getStrLength(result)
+        console.log('字符串长度==' + length)
+
+        var attendeeId = -1
+
+        if (length > 16 && length < 26) {
+
+          attendeeId = result.substring(8, length - 8)
+
+        }
+
+        console.log('result-----------------------------')
+        console.log(attendeeId)
+        console.log(result)
+
+
         var qrScheduleId = 2  //扫码得到日程id
         var signCount = 5;    //签到次数
         var signStatus = 0;   //本地验证签到失败或成功 0失败 1成功
@@ -202,12 +249,16 @@ Page({
         console.log('扫描校验成功了')
         console.log(tempDic)
         console.log(dataDic.scheduleId)
-        console.log(tempDic.name)
 
-        if ((qrScheduleId == dataDic.scheduleId) && tempDic) {  //验证该用户已报名
-          signCount = tempDic.signCount + 1 + 1;
+        if (tempDic) {  //验证该用户已报名
+          signCount = tempDic.signCount + 1;
+          tempDic.signCount = signCount
+          let index = listArr.indexOf(tempDic)
+          listArr[index] = tempDic
           signStatus = 1;
           positionTitle = tempDic.company + tempDic.position;
+          console.log(tempDic.name)
+
 
         } else { //没有报名
 

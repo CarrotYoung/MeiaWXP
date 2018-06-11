@@ -126,7 +126,7 @@
  font-family: PingFangSC-Regular;
  font-size: 26rpx;
  color: #333333;
- width: 200rpx;
+ width: 350rpx;
  height: 74rpx;
  left: 30rpx;
  margin-top: 90rpx;
