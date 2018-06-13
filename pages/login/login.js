@@ -127,9 +127,9 @@ Page({
 
 
   onLoad: function () {
-    wx.authorize({
-      scope: 'scope.userInfo',
-    })
+    // wx.authorize({
+    //   scope: 'scope.userInfo',
+    // })
     var token = wx.getStorageSync('token')
     var userid = wx.getStorageSync('userid')
     if (token && userid) {

@@ -2,8 +2,11 @@
   background-color: #fff;
   width: 100%;
   height: 98rpx;
+  display: -webkit-box; 
+  display: -webkit-flex; 
   display: flex;
-  position: fixed;
+  position: fixed; 
+  flex-direction: row; 
   align-items: center;
 }
 
@@ -54,6 +57,13 @@
   padding: 20rpx;
 }
 
+.icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+
 .header-input-wrapper {
   border: 2rpx solid #EBECF3;
   box-shadow: inset 0 0 6rpx 0 rgba(0,0,0,0.06);
@@ -66,15 +76,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/***删除按钮***/
+  .icon-clear {
+   position: relative; 
+   top: 0rpx; 
+   right: 0rpx; 
+   padding: 7px 8px; 
+   font-size: 0rpx;
+   /* background-color: red; */
+}   
+
+.header-cancel-btn {
+  /* position: absolute; */
+   width: 100rpx; 
+   height: 60rpx; 
+  /* margin-left: 5px; */
+  line-height: 60rpx;
+  color: #09bb07;
+  /* background-color: red; */
+  white-space: nowrap;
+  margin-left: 30rpx;
+  margin-top: -20rpx;
+  display: flex;
+  align-items: center;
 
 }
 
-/* .header-input{
+ /* .header-cancel-btn text{
+
+  text-align:  center;
+  flex: 1;
+}  */
+
+
+
+
+
+.header-cancel-btn text{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #45BC00;
+
+}
+
+ .header-input{
   position: relative;
   text-align: center;
   text-justify: center;
   flex: 1;
-} */
+}  
 
 .sign-list{
   height: 100%;

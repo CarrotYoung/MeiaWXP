@@ -5,7 +5,7 @@
 
   <view class='sign-result'>
      <image class='sign-img' src='{{signImg}}' ></image>
-     <text class='sign-text'>签到{{statusText}}</text> 
+     <text class='sign-text' style='color:{{signColor}}'>{{statusText}}</text> 
   </view>
 
   <view class='sign-name-view'>
