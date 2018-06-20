@@ -1,4 +1,5 @@
-var wssURL = 'ws://edu.meia.me/socketServer'
+var api = require("meiaApi.js");
+var wssURL = api.wssURL;
 
 module.exports = {
   count: 0,  //自动重连计数
