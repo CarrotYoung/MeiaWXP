@@ -5,7 +5,10 @@ module.exports = {
   compareTime: compareTime
 }
 
-function sendRequest(url, suc, obj,  method) {
+// function sendRequest(url, success, complete, obj, method,fail) {
+//   var methodType = method || 'POST'
+//   console.log('请求方法=' + methodType)
+function sendRequest(url, suc, obj, method, fail) {
   
   wx.showLoading({
     title: '加载中..',
@@ -58,6 +61,7 @@ function sendRequest(url, suc, obj,  method) {
     fail: function () {
       wx.hideLoading()
       console.log('请求失败' + url)
+      fail()  //网络请求失败
     },
     complete: function () {
       wx.hideLoading()
@@ -66,6 +70,7 @@ function sendRequest(url, suc, obj,  method) {
     }
   })
 }
+
 function formatDate(date, format) {
   var v = "";
   if (typeof date == "string" || typeof date != "object") {
