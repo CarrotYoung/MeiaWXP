@@ -2,7 +2,7 @@
 
   <view class='select-printer'>
     <text>{{selectPrinter}}</text>
-    <picker range='{{printerList}}' mode='selector' >
+    <picker range='{{printerList}}' mode='selector'>
       <view class='selector-detail'>
         <text>{{printerName}}</text>
         <image src='{{arrowDown}}'></image>
@@ -14,10 +14,12 @@
     <text>{{scanQrHint}}</text>
   </view>
 
-  <view class='scan-background'>
-    <view class='scan-button' bindtap='scanQr'>
-      <image src='{{scanQrIc}}'></image>
-      <text>{{scanQrTxt}}</text>
+  <view id='scan-area' style="background:{{scanAble?'rgba(69,188,0,0.06)':'rgba(185,185,185,0.06);'}}">
+    <view class='scan-background' style="background:{{scanAble?'rgba(69,188,0,0.20)':'rgba(185,185,185,0.20);'}}">
+      <view class='scan-button' bindtap='scanQr' style="background:{{scanAble?'rgba(69,188,0,1)':'rgba(185,185,185,1);'}}">
+        <image src='{{scanQrIc}}'></image>
+        <text>{{scanQrTxt}}</text>
+      </view>
     </view>
   </view>
 
@@ -26,5 +28,5 @@
       <text>所有参会者</text>
     </view>
   </view>
-  
+
 </view>

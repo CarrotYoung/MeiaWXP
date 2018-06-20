@@ -13,11 +13,11 @@ Page({
     var that = this
     var url = getApp().url.listAttendees
     requestParams.page = 1
-    requestParams.activityid = 91
-    requestParams.size = 5 
+    requestParams.activityId = 1
+    requestParams.size = 20 
     function success(result) {
       that.setData({
-        attendeeList: result.data
+        attendeeList: result.actPrintVOList
       })
     }
 
@@ -25,38 +25,11 @@ Page({
   },
 
   itemClick: function(e) {
-    var id = this.target.id
+    console.log(e)
+    var id = e.currentTarget.id
     wx.navigateTo({
       url: '../toPrint/toPrint?id=' + id,
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
   },
 
   /**
@@ -73,10 +46,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  }
 })

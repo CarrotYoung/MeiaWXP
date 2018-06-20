@@ -1,14 +1,25 @@
 <view class='body'>
 
-  <view>
-    <text>{{}}</text>
-    <text>{{}}</text>
-    <text>{{}}</text>
-    <view></view>
-    <text>{{}}</text>
-    <text>{{}}</text>
+  <view class='content-panel'>
+    <text class='name-txt'>{{attender.attendeeName}}</text>
+    <text class='enterprise-txt'>{{attender.company}}</text>
+    <text class='enterprise-txt'>{{attender.position}}</text>
+    <text class='enterprise-txt' style='padding-top:18rpx;font-size:28rpx;'>{{attender.omsOrderId}}</text>
+    <view class='border-line' style='margin-top:50rpx;'></view>
+    <text class='mobile-txt' style='margin-top:50rpx;'>手机：{{attender.phone}}</text>
+    <text class='mobile-txt' style='margin-top:30rpx;'>邮箱：{{attender.email}}</text>
+
+    <input class='remark-input' placeholder='备注' placeholder-class='remark-place'/>
+
+    <button class='print-btn' bindtap='print'>打印</button>
   </view>
 
-  <button></button>
+
+  <view class='bottom'>
+    <view class='all-attendees'>
+      <text>打印记录（{{hisCount}}）</text>
+    </view>
+  </view>
+  
 
 </view>

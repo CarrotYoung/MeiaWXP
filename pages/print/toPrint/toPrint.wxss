@@ -1,1 +1,83 @@
-/* pages/print/toPrint/toPrint.wxss */
+.content-panel {
+  background-color: #fff;
+  padding-top: 50rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 60rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-txt {
+  width: 100%;
+  font-family: PingFangSC-Semibold;
+  font-size: 72rpx;
+  color: #333;
+  letter-spacing: 0;
+  font-weight: bold;
+  padding-bottom: 38rpx;
+}
+
+.enterprise-txt {
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #000;
+  letter-spacing: 0;
+}
+
+.mobile-txt {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999;
+  letter-spacing: 0;
+}
+
+.remark-input {
+  margin-top: 26rpx;
+  background: #fff;
+  border: 2rpx solid #c4cbd2;
+  border-radius: 4rpx;
+}
+
+.remark-place {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999;
+  letter-spacing: 0;
+}
+
+.print-btn {
+  width: 640rpx;
+  height: 88rpx;
+  margin-left: auto;
+  margin-right: auto;
+  background: #45bc00;
+  border-radius: 6rpx;
+  margin-top: 70rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.bottom {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 56rpx;
+}
+
+.all-attendees {
+  width: 256rpx;
+  height: 56rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #EBECF3;
+  border-radius: 100rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.all-attendees text {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+}

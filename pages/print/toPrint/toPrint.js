@@ -1,65 +1,67 @@
-// pages/print/toPrint/toPrint.js
+var attendeeId = 0
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    attender: {},
+    hisList: [],
+    hisCount: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
-  
+    console.log(options)
+    getApp().print.connectWebSocket()
+
+    attendeeId = options.id
+
+    this.getAttendeeInfo(options.id)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  getAttendeeInfo: function (attenderId) {
+    var that = this
+    var url = getApp().url.attendeeDetail
+    var params = {
+      attendeeId: attenderId,
+      activityId: 1
+    }
+ 
+    function success(data) {
+      console.log(data)
+      // var hisLogs = data.actPrintLogList ? JSON.stringify(data.actPrintLogList):[]
+      that.setData({
+        attender: data.actPrintVO,
+        // hisList: JSON.stringify(data.actPrintLogList),
+        // hisCount: hisLogs ? hisLogs.size:0
+      })
+    }
+    getApp().util.sendRequest(url, success,params)
+  },
+
+  print: function(){  
+    var msg = {
+      type: "newAttendee",
+      cmd: "print",
+      activityId: 1,
+      attendeeId: attendeeId,
+      printerName : 'YANGQINGHUA-PC:Deli-007',
+      source: 'client'
+    }
+    getApp().print.print(JSON.stringify(msg))
+  },
+
   onReady: function () {
   
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
   
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
+
   onShareAppMessage: function () {
   
   }
