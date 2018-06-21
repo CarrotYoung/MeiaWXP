@@ -17,7 +17,7 @@
   margin-left: 30rpx;
 }
 
-  .header-btn text {
+.header-btn text {
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #000;
@@ -48,6 +48,7 @@
   /* border: 0px solid #DEDEDE; */
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
 }
+
 .option-text{
   display: block;
   line-height: 40rpx;
@@ -79,7 +80,7 @@
 }
 
 /***删除按钮***/
-  .icon-clear {
+.icon-clear{
    position: relative; 
    top: 0rpx; 
    right: 0rpx; 
@@ -121,31 +122,32 @@
 
 }
 
- .header-input{
+.header-input{
   position: relative;
-  text-align: center;
+  text-align: left;
   text-justify: center;
+  padding:0 0 0 40px;
   flex: 1;
 }  
 
 .sign-list{
   height: 100%;
   width: 100%;
-  /* margin: auto; */
+  margin: auto; 
   position: relative;
   top: 98rpx;
   background-color: whitesmoke;
 }
 
 .list-item{
-  margin: 20rpx 20rpx;
-  /* overflow: hidden; */
+  margin: 20rpx 20rpx; 
+  overflow: hidden;  
   box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06);
   border-radius: 12rpx;
+  border-top-right-radius: 5px;
   height: 200rpx;
   display: flex;
   background-color: white;
-  
   /* box-sizing:  */
 }
 
@@ -161,7 +163,9 @@
 .list-item-rightView{
   display:flex; 
   flex-direction:column; 
-   background-color:#fff; 
+  background-color:#fff; 
+  border-radius: 12rpx;
+
   /* height:100%; */
   box-sizing: content-box;
   flex:1;
@@ -176,7 +180,7 @@
   width:17rpx; 
   height:29rpx;
   position:absolute; 
-  right:15rpx; top:50%;
+  right:25rpx; top:85.5rpx;
 }
 
 .room-text{
@@ -184,7 +188,9 @@
  font-size: 60rpx;
  color: #45BC00;
  text-align: center;
- padding: 20rpx; 
+ padding: 17rpx;
+ margin-top: 6rpx;
+ left: 11rpx;
  background-color: #fff;
 }
 
@@ -193,7 +199,7 @@
  font-size: 25rpx;
  color: #45BC00;
  text-align: center;
- padding: 10rpx;
+ /* padding: 10rpx; */
  background-color: #fff;
 
 }
@@ -202,7 +208,7 @@
   font-family: PingFangSC-Medium;
   font-size: 32rpx;
   color: #333333;
-  margin-top: 10rpx;
+  margin-top: 35rpx;
   /* margin-right: 0rpx; */
   height: 45rpx;
   background-color: #fff;
@@ -213,6 +219,11 @@
   font-family: PingFangSC-Regular;
   font-size: 26rpx;
   color: #333333;
+  background-color: #fff;
+
+  /* margin-top: 15rpx; */
+  /* height: 110rpx; */
+
 }
 
 .bottom-view{

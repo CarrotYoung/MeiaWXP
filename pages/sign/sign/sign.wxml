@@ -16,12 +16,13 @@
 
   <view class='sign-status-view'>
     <view class='sign-status-inter-view'>
-      <text class='allNum-text'> 全部: {{allNum}}</text>
-      <text class='signNum-text' > 已签到: {{signNum}}</text> 
-      <text class='unsignNum-text'> 未签到: {{unsignNum}}</text> 
-      <view class='center-left-line'></view>    
-       <view class='center-right-line'></view>    
-    </view>
+      <text class='allNum-text' bindtap='toSignDetail' id='allNum'> 全部: {{allNum}}</text>
+      <text class='signNum-text' bindtap='toSignDetail' id='signNum'> 已签到: {{signNum}}</text> 
+      <text class='unsignNum-text' bindtap='toSignDetail' id='unsignNum'> 未签到: {{unsignNum}}</text> 
+      <view class='center-left-line'></view>     
+      <view class='center-right-line'></view> 
+    </view>  
+      
    </view> 
 
    
@@ -30,12 +31,16 @@
       <text>{{scanQrHint}}</text>
      </view>  
 
-     <view class='scan-background'>
-       <view class='scan-button' bindtap='scanQr'>
+    <view class='scan-out-background'>
+      <view class='scan-inter-background'>
+        <view class='scan-button' bindtap='scanQr'>
            <image src='{{scanQrIc}}'></image>   
            <text>{{scanQrTxt}}</text>   
-       </view>  
-    </view>  
+        </view>  
+      </view> 
+
+    </view>
+      
   
   </view>
   

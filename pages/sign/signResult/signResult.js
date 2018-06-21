@@ -70,7 +70,6 @@ Page({
 
       this.uploadAttendUserInfo(); //上传签到状态到服务器
 
-
     } else {
 
       statusText = '签到失败'
@@ -207,7 +206,19 @@ Page({
      */
   getStrLength: function (str) {
     ///return str.replace(/[\u0391-\uFFE5]/g,"aa").length;  
-    return str.replace(/[^\x00-\xff]/g, "aa").length;
+    var realLength = 0;
+    var len = str.length;
+    var charCode = -1;
+    for (var i = 0; i < len; i++) {
+      charCode = str.charCodeAt(i);
+      if (charCode >= 0 && charCode <= 128) {
+        realLength += 1;
+      } else {
+        // 如果是中文则长度加3
+        realLength += 3;
+      }
+    }
+    return realLength;
   },
 
   //继续签到
@@ -222,7 +233,7 @@ Page({
         console.log(res)
 
         var result = res.result
-        var length = that.getStrLength(result)
+        var length = result.length   //that.getStrLength(result)
         console.log('字符串长度==' + length)
 
         var attendeeId = -1
@@ -257,6 +268,7 @@ Page({
           listArr[index] = tempDic
           signStatus = 1;
           positionTitle = tempDic.company + tempDic.position;
+          name = tempDic.name;
           console.log(tempDic.name)
 
 
@@ -273,7 +285,7 @@ Page({
           'signCount': signCount,
           'listArr': listArr,
           'signStatus': signStatus,
-          'name': tempDic.name, //
+          'name': name, //
           'positionTitle': positionTitle   //positionTitle
         };
 
