@@ -3,6 +3,7 @@ var signTitle = ""
 var dataDic = {};
 var params = {}
 var listArr = new Array();
+var scheduleId 
 
 Page({
 
@@ -23,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     dataDic = JSON.parse(options.dataDic);
+    scheduleId = dataDic.scheduleId;
     listArr = dataDic.listArr
     console.log('签到又来了')
     console.log(dataDic)
@@ -249,7 +251,7 @@ Page({
         console.log(result)
 
 
-        var qrScheduleId = 2  //扫码得到日程id
+        // var qrScheduleId = 2  //扫码得到日程id
         var signCount = 5;    //签到次数
         var signStatus = 0;   //本地验证签到失败或成功 0失败 1成功
         var positionTitle = '';
@@ -280,7 +282,7 @@ Page({
         }
 
         var dic = {
-          'scheduleId': qrScheduleId,  //扫码得到
+          'scheduleId': scheduleId,  //扫码得到
           'attendeeId': attendeeId,
           'signCount': signCount,
           'listArr': listArr,

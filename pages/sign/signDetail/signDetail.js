@@ -45,7 +45,7 @@ Page({
       unsignNum: unsignNum
     });
 
-    // this.getSignListData(id)
+    this.getSignListData(id)
   
   },
 
@@ -67,7 +67,7 @@ Page({
       var j = 0
       for (j = 0; j < dataArr.length; j++) {
         var dataDic = dataArr[j];
-        var status = dataArr.status;
+        var status = dataDic.status;
         var color = 'red';
         var dateText = dataDic.chooseTime; //已经签到
         var  indexTop = 200*j+30;
@@ -121,7 +121,7 @@ Page({
       })
 
     }
-       
+
     console.log('搜索值');
     console.log(name);
     this.getSignListData(id, name)
@@ -157,16 +157,16 @@ Page({
     var signColor = '#666666';
     var unsignColor = '#666666';
     if (tapId == 'allNum'){
-        left = 0.13;
+        left = 0.1166;
         allColor = '#45BC00';
        
     } else if (tapId == 'signNum'){
 
-       left = 0.48;
+       left = 0.4499;
        signColor = '#45BC00';
 
     } else if (tapId == 'unsignNum'){
-       left = 0.83;
+       left = 0.7832;
        unsignColor = '#45BC00';
     }
     console.log('left='+left)

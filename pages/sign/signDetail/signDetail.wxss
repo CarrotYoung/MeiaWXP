@@ -88,14 +88,13 @@
    width:3rpx;
    height:27rpx;
    background-color:#EBECF3;
-
 }
 
  .bottom-line{
   position: absolute;
   background-color: #45BC00;
   height: 4rpx;
-  width: 100rpx;
+  width: 10%;
   left: 10%;
   bottom: 15%;
   border-radius: 100px;
