@@ -5,6 +5,7 @@ var id = 0
 var lastTap =  ""
 var allDataDic = {}
 var signTapId = 0
+var thisTapId;
 
 Page({
 
@@ -46,7 +47,7 @@ Page({
     });
 
     this.setTap(allDataDic.tapId)
-
+    // thisTapId = allDataDic.tapId;
     this.getSignListData(id)
   
   },
@@ -88,13 +89,13 @@ Page({
       }
 
       // console.log('indexTop=' + listArr)
-      that.setData({
-        list: listArr
-      })
+      // that.setData({
+      //   list: listArr
+      // })
 
       console.log('tapId=' + allDataDic.tapId)
       console.log(allDataDic)
-      that.setTap(allDataDic.tapId)
+      that.setListData(allDataDic.tapId)
 
       
     }
@@ -107,7 +108,6 @@ Page({
     }
 
     getApp().util.sendRequest(url, success, "", "", 'GET')
-
 
   },
 
@@ -143,16 +143,14 @@ Page({
   selectTap: function (e){
 
     this.setTap(e.target.id);
+    this.setListData(e.target.id);
 
   },
 
   setTap: function (tapId){
 
     var left = 0
-    //数组筛选
-    var tempArr = new Array();
-    tempArr = listArr;
-
+   
     console.log('数组=====了')
     console.log(listArr)
     console.log(tapId)
@@ -183,33 +181,48 @@ Page({
     })
 
 
-    if (lastTap != tapId){   //不是重复点击
+  },
+
+
+  setListData: function (tapId){
+
+
+    console.log('数据筛选')
+
+    //数组筛选
+    var tempArr = new Array();
+    tempArr = listArr;
+
+
+    if (lastTap != tapId) {   //不是重复点击
 
       lastTap = tapId;
       if (tapId != 'allNum') {
 
-        if (tapId == 'signNum'){
+        if (tapId == 'signNum') {
 
-          tempArr = listArr.filter((item) => { return item.date != '未签到'});
+          tempArr = listArr.filter((item) => { return item.date != '未签到' });
 
-        }else{
+        } else {
 
           tempArr = listArr.filter((item) => { return item.date == '未签到' });
 
         }
 
-      }else{
+      } else {
 
         tempArr = listArr;
 
       }
-      
-      this.setData({
-        list: tempArr,
-      })
-
 
     }
+
+    console.log('输出临时数组')
+    console.log(tempArr)
+    this.setData({
+      list: tempArr,
+    })
+
 
   },
 

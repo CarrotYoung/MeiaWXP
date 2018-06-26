@@ -27,7 +27,7 @@
           <view class='list-top-view'>
             <text class="name-text">{{item.name}}</text> 
             <text class="date-text" style='color:{{item.dateColor}};'>{{item.date}}</text>    
-           </view>
+          </view>
           <view class='list-bottom-view'>
             <text class="title-text">{{item.company}}</text>
             <text class="title-text" id= 'person-title-text'>{{item.position}}</text>
