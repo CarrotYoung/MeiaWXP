@@ -1,9 +1,9 @@
 var api = require("meiaApi.js");
 var wssURL = api.wssURL;
+var isconnect =  false
 
 module.exports = {
   count: 0,  //自动重连计数
-  isconnect: false,
   printdata: '', //打印请求参数
   print: function (msg) {
     console.log(msg)
@@ -24,6 +24,7 @@ module.exports = {
   },
   connectWebSocket: function (e) {
     var that = this
+    if (isconnect) return
     wx.connectSocket({
       url: wssURL,
     })

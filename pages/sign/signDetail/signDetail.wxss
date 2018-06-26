@@ -1,70 +1,64 @@
 /* pages/sign/signDetail/signDetail.wxss */
 
-.header-search-box{
-   background: #fff;
-   padding:13rpx 24rpx;
+.header-search-box {
+  background: #fff;
+  /* padding:13rpx 24rpx; */
 }
 
-
-.header-search-box-cnt{
-  background-color: white; 
-  height: 65rpx;
+.header-search-box-cnt {
+  background-color: white;
+  margin: auto;
+  height: 98rpx;
   width: 100%;
-  position: relative;
-  border: 2rpx solid #EBECF3;
-  box-shadow: inset 0 0 6rpx 0 rgba(0,0,0,0.06);
-  border-radius: 100rpx;
-  /* background-color: yellow; */
-
+  display: flex;
+  justify-content: center;
 }
 
-.header-search-box  image {
+/* .header-search-box  image {
   position: absolute;
   width: 25rpx; 
   height: 26rpx; 
   left: 30%;  
   top: 19.5rpx;
+} */
+
+.header-search-box input {
+  border: 2rpx solid #ebecf3;
+  box-shadow: inset 0 0 6rpx 0 rgba(0, 0, 0, 0.06);
+  border-radius: 100rpx;
+  position: relative;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  width: 702rpx;
+  height: 65rpx;
+  background-color: #fff;
+  text-align: center;
 }
 
-.header-search-box input{
-  position: absolute;
-  width: 65%;
-  top:0;
-  left:35%;
-  height:65rpx;
-  text-align: left;
-  font-size: 28rpx;
-  /* background-color: red; */
-  /* flex: 1; */
-} 
+.sign-status-view {
+  position: relative;
+  /* border-top: 10rpx; *//* border-top-color: red; */
+  top: 5rpx;
+  background-color: white;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
+.sign-status-inter-view {
+  background-color: white;
+  width: 99%;
+  margin-left: 10rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
-.sign-status-view{
-   position: relative; 
-   /* border-top: 10rpx; */
-   /* border-top-color: red; */
-   top: 5rpx;
-   background-color: white;
-
-   width: 100%; 
-   height: 90rpx;
-   display: flex;  
-   flex-direction: row;
-   justify-content: center;      
-}   
-
-.sign-status-inter-view{
-   background-color: white;
-   width: 99%; 
-   margin-left: 10rpx; 
-   height: 100%;
-   display: flex;
-   flex-direction: row;  
-   justify-content: space-around;  
- }
-
-.allNum-text,.signNum-text,.unsignNum-text{
-  position: relative; 
+.allNum-text, .signNum-text, .unsignNum-text {
+  position: relative;
   width: 33%;
   height: 40rpx;
   /* margin-left: auto;
@@ -72,45 +66,45 @@
   top: 10rpx;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
   padding: 10rpx 10rpx;
   text-align: center;
 }
 
-.center-left-line{
-   position:absolute;
-   left: 33%;
-   top: 36%;
-   width:3rpx;
-   height:27rpx;
-   background-color:#EBECF3; 
- }
-
-.center-right-line{
-   position:absolute;
-   left: 66%;
-   top: 36%;
-   width:3rpx;
-   height:27rpx;
-   background-color:#EBECF3;
+.center-left-line {
+  position: absolute;
+  left: 33%;
+  top: 36%;
+  width: 3rpx;
+  height: 27rpx;
+  background-color: #ebecf3;
 }
 
- .bottom-line{
+.center-right-line {
   position: absolute;
-  background-color: #45BC00;
+  left: 66%;
+  top: 36%;
+  width: 3rpx;
+  height: 27rpx;
+  background-color: #ebecf3;
+}
+
+.bottom-line {
+  position: absolute;
+  background-color: #45bc00;
   height: 4rpx;
   width: 10%;
   left: 10%;
   bottom: 15%;
   border-radius: 100px;
- }
- 
+}
+
 /* .unsignNum-text{
    color: #D82128;
  } */
 
-.sign-list{
-  height: 80%; 
+.sign-list {
+  height: 80%;
   width: 100%;
   margin: auto;
   margin-top: 20rpx;
@@ -120,28 +114,26 @@
   overflow: hidden;
 }
 
-
-.list-item{
+.list-item {
   /* margin: 0rpx  0rpx 2rpx 0rpx;  */
-  overflow: hidden; 
+  overflow: hidden;
   /* box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06); */
   height: 200rpx;
-  display: flex;  
+  display: flex;
   background-color: white;
   flex-direction: column;
   /* box-sizing:  */
 }
 
-.list-top-view{
- display: flex;
- flex-direction: row;
- background-color: white;
- height: 75rpx;
- /* flex: 2; */
-
+.list-top-view {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 75rpx;
+  /* flex: 2; */
 }
 
-.list-bottom-view{
+.list-bottom-view {
   /* flex: 3; */
   background-color: white;
   height: 124rpx;
@@ -149,57 +141,50 @@
   flex-direction: column;
 }
 
-.name-text{
- position: relative;
- font-family: PingFangSC-Medium;
- font-size: 32rpx;
- color: #333333;
- flex: 1;
- /* width: 100rpx; */
- height: 45rpx;
- left: 30rpx;
- top: 30rpx;
+.name-text {
+  position: relative;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #333;
+  flex: 1;
+  /* width: 100rpx; */
+  height: 45rpx;
+  left: 30rpx;
+  top: 30rpx;
 }
 
-
-.date-text{
- position: relative;
- font-family: PingFangSC-Regular;
- font-size: 26rpx;
- color: #999999; 
- flex: 1;
- /* width: 300rpx; */
- height: 37rpx;
- right: 20rpx;
- top: 30rpx;
- text-align: right;
+.date-text {
+  position: relative;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999;
+  flex: 1;
+  /* width: 300rpx; */
+  height: 37rpx;
+  right: 20rpx;
+  top: 30rpx;
+  text-align: right;
 }
 
-.title-text{
- position: relative;
- font-family: PingFangSC-Regular;
- font-size: 26rpx;
- color: #333333;
- /* flex: 1; */
- /* width: 350rpx; */
- /* height: 74rpx; */
- left: 30rpx;
- top: 17rpx;
+.title-text {
+  position: relative;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #333;
+  /* flex: 1; *//* width: 350rpx; *//* height: 74rpx; */
+  left: 30rpx;
+  top: 17rpx;
 }
 
-person-title-text{
- top: 5rpx;
-
+person-title-text {
+  top: 5rpx;
 }
 
-.cell-bottom-line{
- /* border: 1px solid #E2E2E2; */
- position: relative;
- left: 32rpx;
- height: 1rpx;
- background-color: #E2E2E2;
- /* right: 0rpx; */
- /* bottom: 0rpx; */
- /* flex: 1;  */
-
-} 
+.cell-bottom-line {
+  /* border: 1px solid #E2E2E2; */
+  position: relative;
+  left: 32rpx;
+  height: 1rpx;
+  background-color: #e2e2e2;
+  /* right: 0rpx; *//* bottom: 0rpx; *//* flex: 1;  */
+}

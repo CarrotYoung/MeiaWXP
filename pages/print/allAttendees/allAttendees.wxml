@@ -2,7 +2,7 @@
 
   <view class='header-div'>
     <view class='header-search-box'>
-      <input class="header-input" confirm-type='search' placeholder-style='font-family: PingFangSC-Regular;font-size: 28rpx;color: #999999;' placeholder='输入名称搜索' bindinput='searchValueInput' confirm-type="search">
+      <input class="header-input" confirm-type='search' placeholder-style='font-family: PingFangSC-Regular;font-size: 28rpx;color: #999999;' placeholder='输入名称搜索' bindinput='searchValueInput' confirm-type="search" value='{{searchName}}'>
       </input>
     </view>
 

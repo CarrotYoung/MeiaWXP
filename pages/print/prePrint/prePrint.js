@@ -13,17 +13,17 @@ Page({
     hasPrinter: false, //用于popwindow的显示控制
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.getAvailablePrinter()
 
-
+    scanAble = false
     var that = this
     that.setData({
       value: 'show'
     })
   },
 
-  getAvailablePrinter: function(e) {
+  getAvailablePrinter: function (e) {
     var that = this
     var url = getApp().url.listPrinter
 
@@ -64,18 +64,18 @@ Page({
     getApp().util.sendRequest(url, success)
   },
 
-  reloadPrinter: function() {
+  reloadPrinter: function () {
     this.getAvailablePrinter()
     this.toggleDialog()
   },
 
-  scanQr: function() {
+  scanQr: function () {
     if (!scanAble) return;
 
     wx.scanCode({
       onlyFromCamera: true,
       scanType: ['qrCode'],
-      success: function(res) {
+      success: function (res) {
         console.log(res.result)
         if (res.result.indexOf(getApp().url.printQrCode) < 0) {
           wx.showToast({
@@ -91,18 +91,18 @@ Page({
           url: '../toPrint/toPrint?code=' + code,
         })
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
-  toAllAttendees: function() {
+  toAllAttendees: function () {
     if (!scanAble) return;
     wx.navigateTo({
       url: '../allAttendees/allAttendees'
     })
   },
 
-  printable: function(available) {
+  printable: function (available) {
     scanAble = available
     this.setData({
       scanAble: available
@@ -116,7 +116,7 @@ Page({
         scanQrHint: '请先选择打印机',
       })
     }
-    
+
   },
 
   // =================自定义dialog==================
@@ -125,20 +125,18 @@ Page({
       showDialog: !this.data.showDialog
     });
   },
-  itemClick: function(e) {
+  itemClick: function (e) {
     var that = this
 
     var result = e.currentTarget.id
-    
+
 
     // var result = this.data.value
     if (result == 'show') {
-          wx.showToast({
+      wx.showToast({
         title: '没有选择打印机',
       })
     } else {
-
-
       wx.setStorageSync('printer', result)
       that.setData({
         printerName: result,
@@ -150,7 +148,7 @@ Page({
     })
   },
 
- 
+
 
 
 })

@@ -17,6 +17,7 @@ Page({
     getApp().print.connectWebSocket()
 
     attendeeId = options.id
+    remark = ''
 
     this.getAttendeeInfo(options.id, options.code)
   },

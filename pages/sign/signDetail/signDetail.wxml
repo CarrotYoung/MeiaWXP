@@ -1,42 +1,42 @@
 <view class='body'>
 
-  <view  class='header-search-box'>
+  <view class='header-search-box'>
     <view class="header-search-box-cnt">
-    <image class="icon-search_in-box" hidden='{{hidden}}' src='/icons/search.png'></image>   
-     <!-- <icon type="search" hidden='{{hidden}}'  size="18"></icon>   -->
-    <input type="text" confirm-type='search' placeholder-style='color:gray' placeholder='输入名称搜索' bindinput='searchValueInput' bindfocus='inputFocus' value='{{searchText}}'> 
-    </input>
-      </view> 
-  </view>  
-
-  <view class='sign-status-view'>
-    <view class='sign-status-inter-view'>
-      <text class='allNum-text' bindtap='selectTap' id='allNum'  style="color:{{allColor}}"> 全部: {{allNum}}</text>
-      <text class='signNum-text' bindtap='selectTap' id='signNum'  style="color:{{signColor}}"> 已签到: {{signNum}}</text> 
-      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' style="color:{{unsignColor}}"> 未签到: {{unsignNum}}</text> 
-      <view class='center-left-line'></view>    
-      <view class='center-right-line'></view> 
-      <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>   
+      <!-- <image class="icon-search_in-box" hidden='{{hidden}}' src='/icons/search.png'></image>    -->
+      <!-- <icon type="search" hidden='{{hidden}}'  size="18"></icon>   -->
+      <input class='header-input' type="text" confirm-type='search' placeholder-style='font-family: PingFangSC-Regular;font-size: 28rpx;color: #999999;' placeholder='输入名称搜索' bindinput='searchValueInput' bindfocus='inputFocus' value='{{searchText}}'>
+      </input>
     </view>
   </view>
 
-   <!-- 列表top:{{item.indexTop}}rpx -->
+  <view class='sign-status-view'>
+    <view class='sign-status-inter-view'>
+      <text class='allNum-text' bindtap='selectTap' id='allNum' style="color:{{allColor}}"> 全部: {{allNum}}</text>
+      <text class='signNum-text' bindtap='selectTap' id='signNum' style="color:{{signColor}}"> 已签到: {{signNum}}</text>
+      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' style="color:{{unsignColor}}"> 未签到: {{unsignNum}}</text>
+      <view class='center-left-line'></view>
+      <view class='center-right-line'></view>
+      <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>
+    </view>
+  </view>
+
+  <!-- 列表top:{{item.indexTop}}rpx -->
   <scroll-view scroll-y="true" class='sign-list'>
     <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-        <view class='list-item' id="{{item.id}}">
-          <view class='list-top-view'>
-            <text class="name-text">{{item.name}}</text> 
-            <text class="date-text" style='color:{{item.dateColor}};'>{{item.date}}</text>    
-           </view>
-          <view class='list-bottom-view'>
-            <text class="title-text">{{item.company}}</text>
-            <text class="title-text" id= 'person-title-text'>{{item.position}}</text>
-          </view>
-          <view class='cell-bottom-line'></view>  
-            
+      <view class='list-item' id="{{item.id}}">
+        <view class='list-top-view'>
+          <text class="name-text">{{item.name}}</text>
+          <text class="date-text" style='color:{{item.dateColor}};'>{{item.date}}</text>
         </view>
-    </block> 
+        <view class='list-bottom-view'>
+          <text class="title-text">{{item.company}}</text>
+          <text class="title-text" id='person-title-text'>{{item.position}}</text>
+        </view>
+        <view class='cell-bottom-line'></view>
 
-  </scroll-view> 
-  
+      </view>
+    </block>
+
+  </scroll-view>
+
 </view>

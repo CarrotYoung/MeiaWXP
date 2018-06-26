@@ -7,9 +7,20 @@ var searchName = ''
 Page({
   data: {
     currPrintType : 0,
+    searchName: ''
   },
 
   onLoad: function (options) {
+    //清理状态
+    attendeeList = []
+    searchName = ''
+    currPrintType = 0 
+    page = 1
+    this.setData({
+      currPrintType: 0,
+      searchName: searchName
+    })
+
     this.getAllAttendees()
   },
 
@@ -73,6 +84,8 @@ Page({
     searchName = e.detail.value.trim()
     // if (!e.detail.value.trim()) return;
     // if (e.detail.value.trim() == this.searchName) return;
+    console.log(searchName)
+    attendeeList = []
     this.getAllAttendees(currPrintType)
   },
   /**
@@ -80,10 +93,7 @@ Page({
    */
   onPullDownRefresh: function () {
     console.log('reach top ' + page)
-    if (page>1) {
-      page--
-      this.getAllAttendees()
-    }
+    wx.stopPullDownRefresh(); 
   },
 
   /**
