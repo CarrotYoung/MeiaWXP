@@ -96,6 +96,8 @@ Page({
     this.setData({
       msg: ''
     })
+
+    var that = this
     wx.request({
       url: url,
       header: {
@@ -111,7 +113,7 @@ Page({
             url: '../index/index'
           })
         } else {
-          this.setData({
+          that.setData({
             msg: data.msg
           })
         }

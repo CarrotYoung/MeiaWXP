@@ -39,7 +39,6 @@ App({
       }
     })
 
-
   },
   globalData: { // 小程序全局
     userInfo: null,

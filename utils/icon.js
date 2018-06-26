@@ -8,5 +8,5 @@ module.exports = {
   signIc: '/icons/sign_in.png',
   resultSuccess: '/icons/result_success.png',
   resultWarning: '/icons/result_warning.png',
-  resultFail: 'icons/result_fail.png'
+  resultFail: '/icons/result_fail.png'
 }
