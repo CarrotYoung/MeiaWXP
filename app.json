@@ -1,15 +1,16 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/print/allAttendees/allAttendees",
+    "pages/launch/launch",
+    "pages/print/prePrint/prePrint",
+    "pages/login/login",
     "pages/print/toPrint/toPrint",
     "pages/index/index",
     "pages/sign/signResult/signResult",
     "pages/sign/sign/sign",
     "pages/sign/signSchedule/signSchedule",
     "pages/sign/signDetail/signDetail",
-    "pages/logs/logs",
-    "pages/print/prePrint/prePrint"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

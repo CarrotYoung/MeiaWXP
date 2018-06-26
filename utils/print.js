@@ -43,11 +43,19 @@ module.exports = {
     })
     wx.onSocketMessage(function (res) {
       console.log('收到服务器消息')
-      console.log(res.data)
       wx.hideLoading()
-      // wx.navigateTo({
-      //   url: '../result/result?data=' + encodeURIComponent(JSON.stringify(res.data))
-      // })
+
+      var result = JSON.parse(res.data)
+      console.log(result)
+      if (result.code == 0) {
+        wx.navigateBack({ //返回上一页
+          delta: 1
+        })
+
+        wx.showToast({
+          title: result.msg,
+        })
+      }
     })
     wx.onSocketClose(function (res) {
       that.isconnect = false

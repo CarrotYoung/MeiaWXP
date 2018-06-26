@@ -7,12 +7,29 @@ Page({
     printImg: getApp().icon.printIc,
     signInImg: getApp().icon.signIc,
     printTxt: printTxt,
-    signInTxt: signInTxt
+    signInTxt: signInTxt,
+    avatarURL:getApp().icon.defaultAvatar,
+    arrowImg: getApp().icon.arrowDown,
+    showPopWin: false,
   },
 
   toPrintCert: function () {
     wx.navigateTo({
       url: '../print/prePrint/prePrint'
+    })
+  },
+
+  showPop: function (){
+    this.setData({
+      showPopWin: !this.data.showPopWin,
+    }); 
+  },
+
+  logout: function() {
+    wx.setStorageSync('userid',undefined)
+    var page = '../login/login'
+    wx.redirectTo({
+      url: page,
     })
   },
 

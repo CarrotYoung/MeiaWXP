@@ -1,9 +1,16 @@
-<!--index.wxml-->
 <view class="body">
   <view class="header">
     <image class="logo-img" src="{{ixdcLogoIc}}"></image>
-    <text class="login-hint">{{unLoginTxt}}</text>
+
+    <view class='logout' bindtap='showPop'>
+      <image class='avatar-img' src='{{avatarURL}}'></image>
+      <image class='arrow-img' src='{{arrowImg}}'></image>
+    </view>
   </view>
+
+  <view class='logout-box' bindtap='logout' style= "display:{{!showPopWin?'none':'flex'}}">
+    <text>退出</text>
+  </view> 
 
   <view class='item' bindtap='toPrintCert'>
     <image src='{{printImg}}' mode='aspectFit'></image>

@@ -4,22 +4,55 @@
     <text class='name-txt'>{{attender.attendeeName}}</text>
     <text class='enterprise-txt'>{{attender.company}}</text>
     <text class='enterprise-txt'>{{attender.position}}</text>
-    <text class='enterprise-txt' style='padding-top:18rpx;font-size:28rpx;'>{{attender.omsOrderId}}</text>
     <view class='border-line' style='margin-top:50rpx;'></view>
     <text class='mobile-txt' style='margin-top:50rpx;'>手机：{{attender.phone}}</text>
     <text class='mobile-txt' style='margin-top:30rpx;'>邮箱：{{attender.email}}</text>
 
-    <input class='remark-input' placeholder='备注' placeholder-class='remark-place'/>
+    <input class='remark-input' placeholder='输入备注' placeholder-class='remark-place' bindinput='remarkInput'/>
 
     <button class='print-btn' bindtap='print'>打印</button>
   </view>
 
 
-  <view class='bottom'>
-    <view class='all-attendees'>
-      <text>打印记录（{{hisCount}}）</text>
+  <view class='bottom' style='display:{{showHis?"block":"none"}};'>
+    <!-- <picker range='{{printHis}}' mode='selector'> -->
+      <view class='all-attendees' bindtap='toggleDialog'>
+        <text>打印记录（{{hisCount}}）</text>
+      </view>
+    <!-- </picker> -->
+  </view>
+
+  <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+    <view class="free-dialog__mask" bindtap="toggleDialog" />
+    <view class="free-dialog__container">
+      <view style='display:flex;flex-direction: column'>
+
+        <view class="free-button">
+          <text>打印记录（{{hisCount}}）</text>
+        </view>
+
+        <view class='border-line' />
+
+    
+        <scroll-view scroll-y="true" class='printer-list'>
+          <block wx:for-items="{{printHis}}" wx:key="{{item}}">
+            <view class='list-item' id="{{item}}" bindtap='itemClick'>
+
+              <view class='his-log'>
+                <text class='log-txt'>打印人：{{item.printUserId}}</text>
+                <text class='log-txt log-date'>{{item.gmtCreate}}</text>
+              </view>
+
+              <text class='log-txt' style = 'margin-left:3%;'>备注：{{item.note}}</text>
+            </view>
+            <view class='border-line' style='width:94%;margin-left:3%;margin-top:3%;'></view>
+          </block>
+
+        </scroll-view>
+
+      </view>
     </view>
   </view>
-  
+
 
 </view>
