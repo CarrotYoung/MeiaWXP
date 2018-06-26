@@ -21,7 +21,7 @@ function sendRequest(url, suc, obj, method, fail) {
   if ((url && url.indexOf('token') <1) || (obj && !obj.token)) {
     if (!obj) obj = {}
     obj.token = wx.getStorageSync('token')
-    obj.userid = wx.getStorageSync('userid')
+    obj.userId = wx.getStorageSync('userid')
   }
 
   method = method || 'GET'

@@ -22,6 +22,8 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
 }
 
 .selector-detail text {
@@ -29,16 +31,15 @@
   font-size: 28rpx;
   color: #666;
   letter-spacing: 0;
-  position: relative;
-  top: 10rpx;
+  flex: 1;
 }
 
 .selector-detail image {
   width: 16rpx;
   height: 10rpx;
   position: relative;
-  margin-left: 70%;
-  top: 5.5rpx;
+  right: 20rpx;
+  top: 35rpx;
 }
 
 .scan-hint {
@@ -50,15 +51,28 @@
   margin-top: 18%;
 }
 
+#scan-area {
+  display: flex;
+  background: rgba(69,188,0,0.06);
+  width: 380rpx;
+  height: 380rpx;
+  border-radius: 190rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .scan-background {
   display: flex;
-  background-color: #D1EEC0;
+  background: rgba(69,188,0,0.20);
   width: 340rpx;
   height: 340rpx;
   border-radius: 170rpx;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20%;
   align-items: center;
   justify-content: center;
 }
