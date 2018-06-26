@@ -1,36 +1,41 @@
 /* pages/sign/signDetail/signDetail.wxss */
 
+.header-search-box{
+   background: #fff;
+   padding:13rpx 24rpx;
+}
 
-.header-search-box {
-  background-color: white;
-  margin: auto;
-  height: 98rpx;
+
+.header-search-box-cnt{
+  background-color: white; 
+  height: 65rpx;
   width: 100%;
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-
-}
-
-.header-search-box  icon {
-  position: absolute;
-  /* width: 23rpx; */
-  /* height: 23rpx; */
-  left: 25%;   
-  
-  /* top: 25rpx;    */
-}
-
-.header-search-box input{
+  position: relative;
   border: 2rpx solid #EBECF3;
   box-shadow: inset 0 0 6rpx 0 rgba(0,0,0,0.06);
   border-radius: 100rpx;
-  position: relative;
-  margin-left: 5%;
-  margin-right:5%;
-  width: 90%;
-  height: 80%;
-  text-align: center; 
+  /* background-color: yellow; */
+
+}
+
+.header-search-box  image {
+  position: absolute;
+  width: 25rpx; 
+  height: 26rpx; 
+  left: 30%;  
+  top: 19.5rpx;
+}
+
+.header-search-box input{
+  position: absolute;
+  width: 65%;
+  top:0;
+  left:35%;
+  height:65rpx;
+  text-align: left;
+  font-size: 28rpx;
+  /* background-color: red; */
+  /* flex: 1; */
 } 
 
 
@@ -66,8 +71,8 @@
   margin-right: auto;  */
   top: 10rpx;
   font-family: PingFangSC-Regular;
-  font-size: 35rpx;
-  color: #000000;
+  font-size: 28rpx;
+  color: #666666;
   padding: 10rpx 10rpx;
   text-align: center;
 }
@@ -105,10 +110,11 @@
  } */
 
 .sign-list{
-  height: 90%;
+  height: 80%; 
   width: 100%;
   margin: auto;
-  margin-top: 40rpx;
+  margin-top: 20rpx;
+  /* margin-bottom: 0rpx; */
   background-color: whitesmoke;
   position: relative;
   overflow: hidden;

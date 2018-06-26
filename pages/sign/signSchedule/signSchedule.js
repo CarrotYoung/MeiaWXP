@@ -19,7 +19,7 @@ Page({
     arrowImg: getApp().icon.arrowDown,
     selectList: selectList,
     index: 0,
-    rightArrowImg: getApp().icon.rightArrow
+    rightArrowImg: getApp().icon.rightArrow,
   },
 
   // 点击下拉显示框
@@ -248,9 +248,12 @@ Page({
 
     var that = this;
     this.setData({
-      headerBtnShow: true
-
+      headerBtnShow: true,
+      searchText: ''
     })
+
+        this.getScheduleList();
+
   },
 
   /**

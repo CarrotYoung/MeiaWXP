@@ -45,6 +45,8 @@ Page({
       unsignNum: unsignNum
     });
 
+    this.setTap(allDataDic.tapId)
+
     this.getSignListData(id)
   
   },
@@ -70,6 +72,7 @@ Page({
         var status = dataDic.status;
         var color = 'red';
         var dateText = dataDic.chooseTime; //已经签到
+        dateText = dateText.substr(11,8)
         var  indexTop = 200*j+30;
         if(status == 1) //已经签到
         {
@@ -170,6 +173,15 @@ Page({
        unsignColor = '#45BC00';
     }
     console.log('left='+left)
+    console.log('allColor=' + allColor)
+
+    this.setData({
+      btmLineLeft: left * 100,
+      allColor: allColor,
+      signColor: signColor,
+      unsignColor: unsignColor
+    })
+
 
     if (lastTap != tapId){   //不是重复点击
 
@@ -193,11 +205,7 @@ Page({
       }
       
       this.setData({
-        btmLineLeft: left * 100,
         list: tempArr,
-        allColor: allColor,
-        signColor: signColor,
-        unsignColor: unsignColor
       })
 
 
