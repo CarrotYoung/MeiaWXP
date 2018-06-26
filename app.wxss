@@ -1,4 +1,3 @@
-/**app.wxss**/
 page {
   width: 100%;
   height: 100%;
@@ -16,8 +15,9 @@ page {
 } 
 
 .border-line {
-  height: 1rpx;
+  height: 3rpx;
   width: 100%;
+  background-color: #F0EFF5;
 }
 
 .body{

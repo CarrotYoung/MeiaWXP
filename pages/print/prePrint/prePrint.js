@@ -3,6 +3,7 @@ var printerName = ''
 var scanQrHint = '点击扫码开始打印'
 var scanQrTxt = '扫码'
 var printerList
+var scanAble = false
 
 Page({  
   data: {
@@ -10,8 +11,10 @@ Page({
     printerName: printerName,
     arrowDown: getApp().icon.arrowDown,
     scanQrHint: scanQrHint,
-    scanQrIc: getApp().globalData.scanQr,
+    scanQrIc: getApp().icon.scanQr,
     scanQrTxt: scanQrTxt,
+
+    
   },
 
   onLoad: function (options) {
@@ -42,16 +45,26 @@ Page({
       })
 
       printerList = result.data
-      if (printerList && printerList.length == 1) {
+      if (printerList && printerList.length > 0) {
         that.setData({
-          printerName: printerList[0]
+          printerName: printerList[0],
+          scanAble: true
         })
 
+      } else { //没有打印机，不让扫码
+        that.setData({
+          scanAble: false
+        })
       }
 
     }
 
-    getApp().util.sendRequest(url, success)
+    var params = {
+      token : wx.getStorageSync('token'),
+      userid : wx.getStorageSync('userid')
+    }
+
+    getApp().util.sendRequest(url, success, params)
   },
 
   /**
@@ -103,6 +116,8 @@ Page({
   
   },
   scanQr: function () {
+    if (!scanAble) return;
+
     wx.scanCode({
       onlyFromCamera: true,
       scanType: ['qrCode'],

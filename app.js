@@ -3,6 +3,8 @@ App({
   util: require('utils/util'),
   url: require('utils/meiaApi'),
   icon: require('utils/icon'),
+
+  print: require('utils/print'),
   
   onLaunch: function () {
     // 展示本地存储能力
