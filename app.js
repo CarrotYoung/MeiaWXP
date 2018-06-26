@@ -1,4 +1,3 @@
-//app.js
 App({
   util: require('utils/util'),
   url: require('utils/meiaApi'),
@@ -38,7 +37,6 @@ App({
         }
       }
     })
-
 
   },
   globalData: { // 小程序全局

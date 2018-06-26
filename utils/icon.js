@@ -10,6 +10,6 @@ module.exports = {
   resultSuccess: '/icons/result_success.png',
   resultWarning: '/icons/result_warning.png',
   resultFail: 'icons/result_fail.png',
-
-  defaultAvatar: '/icons/default_avatar.png'
+  defaultAvatar: '/icons/default_avatar.png',
+  resultFail: '/icons/result_fail.png',
 }

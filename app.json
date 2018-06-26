@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/sign/signDetail/signDetail",
     "pages/print/allAttendees/allAttendees",
     "pages/launch/launch",
     "pages/print/prePrint/prePrint",
@@ -9,6 +11,7 @@
     "pages/sign/signResult/signResult",
     "pages/sign/sign/sign",
     "pages/sign/signSchedule/signSchedule",
+    "pages/print/toPrint/toPrint",
     "pages/sign/signDetail/signDetail",
     "pages/logs/logs"
   ],

@@ -3,6 +3,7 @@ var signTitle = ""
 var dataDic = {};
 var params = {}
 var listArr = new Array();
+var scheduleId 
 
 Page({
 
@@ -23,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     dataDic = JSON.parse(options.dataDic);
+    scheduleId = dataDic.scheduleId;
     listArr = dataDic.listArr
     console.log('签到又来了')
     console.log(dataDic)
@@ -69,7 +71,6 @@ Page({
       }
 
       this.uploadAttendUserInfo(); //上传签到状态到服务器
-
 
     } else {
 
@@ -207,7 +208,19 @@ Page({
      */
   getStrLength: function (str) {
     ///return str.replace(/[\u0391-\uFFE5]/g,"aa").length;  
-    return str.replace(/[^\x00-\xff]/g, "aa").length;
+    var realLength = 0;
+    var len = str.length;
+    var charCode = -1;
+    for (var i = 0; i < len; i++) {
+      charCode = str.charCodeAt(i);
+      if (charCode >= 0 && charCode <= 128) {
+        realLength += 1;
+      } else {
+        // 如果是中文则长度加3
+        realLength += 3;
+      }
+    }
+    return realLength;
   },
 
   //继续签到
@@ -222,7 +235,7 @@ Page({
         console.log(res)
 
         var result = res.result
-        var length = that.getStrLength(result)
+        var length = result.length   //that.getStrLength(result)
         console.log('字符串长度==' + length)
 
         var attendeeId = -1
@@ -238,7 +251,7 @@ Page({
         console.log(result)
 
 
-        var qrScheduleId = 2  //扫码得到日程id
+        // var qrScheduleId = 2  //扫码得到日程id
         var signCount = 5;    //签到次数
         var signStatus = 0;   //本地验证签到失败或成功 0失败 1成功
         var positionTitle = '';
@@ -257,6 +270,7 @@ Page({
           listArr[index] = tempDic
           signStatus = 1;
           positionTitle = tempDic.company + tempDic.position;
+          name = tempDic.name;
           console.log(tempDic.name)
 
 
@@ -268,12 +282,12 @@ Page({
         }
 
         var dic = {
-          'scheduleId': qrScheduleId,  //扫码得到
+          'scheduleId': scheduleId,  //扫码得到
           'attendeeId': attendeeId,
           'signCount': signCount,
           'listArr': listArr,
           'signStatus': signStatus,
-          'name': tempDic.name, //
+          'name': name, //
           'positionTitle': positionTitle   //positionTitle
         };
 

@@ -6,6 +6,7 @@ var index = 0
 var show = false
 var listArr = new Array
 var searchText = ''
+var tempArr = new Array();
 
 Page({
 
@@ -18,25 +19,22 @@ Page({
     arrowImg: getApp().icon.arrowDown,
     selectList: selectList,
     index: 0,
-    rightArrowImg: getApp().icon.rightArrow
+    rightArrowImg: getApp().icon.rightArrow,
   },
 
   // 点击下拉显示框
   selectTap() {
     this.setData({
       show: !this.data.show,
-    
     }); 
     this.setArrowImg(!this.data.show);  
-    
-
   },
 
   // 点击下拉列表
   optionTap(e) {
+
     let index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
     //数组筛选
-    var tempArr = new Array();
     tempArr = listArr;
     if (selectList[index] != '全部日程'){
       tempArr = listArr.filter((item) => { return item.signStatus == selectList[index] });
@@ -62,23 +60,25 @@ Page({
 
     // console.log("打印");
     var index = tap.currentTarget.dataset.index;//获取点击的下拉列表的下标
-    var id = listArr[index].id;
-    var room = listArr[index].room;
+    var id = tempArr[index].id;
+    var room = tempArr[index].room;
     console.log("输入id="+id);
     console.log("输入room=" + room);
-    var dataDic = listArr[index];
+    var dataDic = tempArr[index];
     var signStatus = dataDic.signStatus;
     // signStatus = '已结束'
+
+    console.log('传输字典')
+    console.log(dataDic)
     if (signStatus == '已结束'){
       wx.navigateTo({
         url: '../../../pages/sign/signDetail/signDetail' + "?dataDic=" + JSON.stringify(dataDic)
       })
-    }else {
 
+    }else {
       wx.navigateTo({
         url: '/pages/sign/sign/sign' + "?dataDic=" + JSON.stringify(dataDic)
       })
-
     }
 
     this.hiddenOptionTap()
@@ -120,12 +120,17 @@ Page({
      //本地时间
      var localTimestamp = (new Date()).getTime();
 
+     console.log("当前时间==" + localTimestamp);
+    //  localTimestamp = 0
+
     //  var listArr = new Array()
      var j = 0
-     for (j = 0; j < dataArr.length; j++) {
+     var tempEndArr = new Array
+    for (j = 0; j < dataArr.length; j++) {
      var dataDic = dataArr[j];
      //开始时间
      var startTimestamp = (new Date(dataDic.startTime)).getTime();
+
      //结束时间
      var endTimestamp = (new Date(dataDic.endTime)).getTime();
      var signStatus = '';
@@ -140,17 +145,15 @@ Page({
      }else{
        signStatus = '已结束';
        statusColor = 'rgb(153,153,153)'
-
+       
      }
 
      var roomType = '';
      if (dataDic.type == "workshop"){
        roomType = '工作坊';
-     } else if (dataDic.type == "summit")
-     {
+     } else if (dataDic.type == "summit"){
        roomType = '峰会';
-     } else if (dataDic.type == "speech")
-     {
+     } else if (dataDic.type == "speech"){
        roomType = '大会';
      } else if (dataDic.type == "trip"){
        roomType = '设计之旅';
@@ -158,13 +161,24 @@ Page({
        roomType = '圆桌';
      }
 
-     var dic = { "room": dataDic.session, "signStatus": signStatus, "title": dataDic.theme, "roomType": roomType, "id": dataDic.id, "buyNum": dataDic.buyNum, "signCount": dataDic.signCount, "statusColor": statusColor};
-     listArr.push(dic)
+    //  signStatus = '未开始';
+    //  var statusColor = 'rgb(69,188,0)';
+
+     var dic = { "room": dataDic.session, "signStatus": signStatus, "title": dataDic.theme, "roomType": roomType, "id": dataDic.id, "buyNum": dataDic.buyNum, "signCount": dataDic.signCount, "statusColor": statusColor, "tapId":'allNum'};
+
+     if (signStatus == '已结束'){
+         tempEndArr.push(dic)
+     }else{
+
+       listArr.push(dic)
      }
 
+    }
 
+     listArr = listArr.concat(tempEndArr)
     //  console.log("输出列表")
     //  console.log(listArr)
+     tempArr = listArr
      that.setData({
         list: listArr
      })
@@ -184,7 +198,6 @@ Page({
       })}
 
     getApp().util.sendRequest(url, success, "","",'GET',fail)
-
 
   },
 
@@ -235,9 +248,12 @@ Page({
 
     var that = this;
     this.setData({
-      headerBtnShow: true
-
+      headerBtnShow: true,
+      searchText: ''
     })
+
+        this.getScheduleList();
+
   },
 
   /**
