@@ -11,27 +11,18 @@
 
   <view class='sign-status-view'>
     <view class='sign-status-inter-view'>
-      <text class='allNum-text' bindtap='selectTap' id='allNum' style="color:{{allColor}}"> 全部: {{allNum}}</text>
-      <text class='signNum-text' bindtap='selectTap' id='signNum' style="color:{{signColor}}"> 已签到: {{signNum}}</text>
-      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' style="color:{{unsignColor}}"> 未签到: {{unsignNum}}</text>
-      <view class='center-left-line'></view>
-      <view class='center-right-line'></view>
-      <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>
+      <text class='allNum-text' bindtap='selectTap' id='allNum'  style="color:{{allColor}}"> 全部: {{allNum}}</text>
+      <text class='signNum-text' bindtap='selectTap' id='signNum'  style="color:{{signColor}}"> 已签到: {{signNum}}</text> 
+      <text class='unsignNum-text' bindtap='selectTap' id='unsignNum' style="color:{{unsignColor}}"> 未签到: {{unsignNum}}</text> 
+      <view class='center-left-line'></view>    
+      <view class='center-right-line'></view> 
+      <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>   
     </view>
   </view>
 
-  <!-- 列表top:{{item.indexTop}}rpx -->
+   <!-- 列表top:{{item.indexTop}}rpx -->
   <scroll-view scroll-y="true" class='sign-list'>
     <block wx:for-items="{{list}}" wx:key="{{item.id}}">
-      <view class='list-item' id="{{item.id}}">
-        <view class='list-top-view'>
-          <text class="name-text">{{item.name}}</text>
-          <text class="date-text" style='color:{{item.dateColor}};'>{{item.date}}</text>
-        </view>
-        <view class='list-bottom-view'>
-          <text class="title-text">{{item.company}}</text>
-          <text class="title-text" id='person-title-text'>{{item.position}}</text>
-
         <view class='list-item' id="{{item.id}}">
           <view class='list-top-view'>
             <text class="name-text">{{item.name}}</text> 
@@ -43,13 +34,9 @@
           </view>
           <view class='cell-bottom-line'></view>  
             
-
         </view>
-        <view class='cell-bottom-line'></view>
+    </block> 
 
-      </view>
-    </block>
-
-  </scroll-view>
+  </scroll-view> 
 
 </view>

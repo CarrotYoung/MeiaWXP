@@ -25,6 +25,7 @@
   height: 45rpx;
   flex: 3.4;
   margin-right: 12rpx;
+  border-radius: 22.5rpx;
 }
 
 .arrow-img {

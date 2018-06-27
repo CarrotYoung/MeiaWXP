@@ -7,63 +7,49 @@ Page({
 
 
   onLoad: function (options) {
+    var that = this
     setTimeout(function () {
-      var page = '../login/login'
-      if (wx.getStorageSync('userid')) {
-        page = '../index/index'
+      if (wx.getStorageSync('name')) {
+        that.autoLogin()
+      } else {
+        wx.redirectTo({
+          url: '../login/login',
+        })
       }
-      wx.redirectTo({
-        url: page,
-      })
-    }, 2000);
+      
+    }, 1000);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+  autoLogin: function (e) {
+    var url = getApp().url.loginAPI
+    url += '?password=' + wx.getStorageSync('password') + '&name=' + wx.getStorageSync('name')
+    console.log('url====' + url)
+    wx.request({
+      url: url,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var data = res.data
+        console.log(res)
+        if (data.code == 0) {
+          wx.setStorageSync('userid', data.userId)
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+          wx.redirectTo({
+            url: '../index/index?avatar=' + data.headShot + '&pgroup=' + data.pgroup
+          })
+        } else {
+          wx.showToast({
+            title: data.msg
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败',
+        })
+      },
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

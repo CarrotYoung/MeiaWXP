@@ -86,6 +86,7 @@ Page({
     // if (e.detail.value.trim() == this.searchName) return;
     console.log(searchName)
     attendeeList = []
+    page = 1
     this.getAllAttendees(currPrintType)
   },
   /**

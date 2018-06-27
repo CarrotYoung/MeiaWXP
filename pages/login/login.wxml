@@ -12,7 +12,8 @@
     <input id='passwordInput' class='login-input' bindinput='infoInput' focus="{{focusPassword}}" password='true' placeholder='{{passwordHint}}' placeholder-class='placeholder-input' confirm-type="go" bindconfirm="login"></input>
   </view>
 
-  <button class='login-btn' bindtap='login'>{{loginTxt}}
+  <button class='login-btn' bindtap='login'>
+    <text>登录</text>
   </button>
 
 
