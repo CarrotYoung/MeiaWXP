@@ -1,14 +1,12 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/sign/signDetail/signDetail",
     "pages/print/allAttendees/allAttendees",
     "pages/print/toPrint/toPrint",
     "pages/index/index",
     "pages/sign/signResult/signResult",
     "pages/sign/sign/sign",
     "pages/sign/signSchedule/signSchedule",
-    "pages/print/toPrint/toPrint",
     "pages/sign/signDetail/signDetail",
     "pages/logs/logs",
     "pages/print/prePrint/prePrint"
