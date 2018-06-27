@@ -133,19 +133,26 @@ Page({
 
      //结束时间
      var endTimestamp = (new Date(dataDic.endTime)).getTime();
+     var status = dataDic.status;
      var signStatus = '';
      var statusColor = 'red';
-     if ( localTimestamp <=startTimestamp){  //未开始
+     if (status == 1){  //未开始
         signStatus ='未开始';
         var statusColor = 'rgb(69,188,0)';
-     } else if ((localTimestamp > startTimestamp) && (localTimestamp <endTimestamp))     {
+     } else if (status == 2)     {
        signStatus = '进行中';
        statusColor = 'rgb(0,122,255)'
 
-     }else{
+     } else if (status == 3){
        signStatus = '已结束';
        statusColor = 'rgb(153,153,153)'
        
+     }else
+     {
+       signStatus = '未知';
+       statusColor = 'rgb(153,153,153)'
+
+
      }
 
      var roomType = '';

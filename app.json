@@ -9,7 +9,9 @@
     "pages/sign/signDetail/signDetail",
     "pages/sign/signResult/signResult",
     "pages/sign/sign/sign",
-    "pages/sign/signSchedule/signSchedule"
+    "pages/sign/signSchedule/signSchedule",
+    "pages/logs/logs",
+
   ],
   "window": {
     "backgroundTextStyle": "light",
