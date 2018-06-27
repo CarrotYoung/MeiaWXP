@@ -4,8 +4,8 @@
   bottom: 0;
   top:0;
   margin: auto;
-  width: 194rpx;
-  height: 37rpx;
+  width: 163rpx;
+  height: 45rpx;
 }
 
 .login-hint{
@@ -36,7 +36,6 @@
   background-color: #fff;
   color: #999;
   padding-left: 24rpx;
-  
 }
 
 .placeholder-input {

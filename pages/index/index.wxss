@@ -1,25 +1,61 @@
-.logo-img{
+.logo-img {
   position: absolute;
   left: 24rpx;
   bottom: 0;
-  top:0;
+  top: 0;
   margin: auto;
-  width: 194rpx;
-  height: 37rpx;
+  width: 163rpx;
+  height: 45rpx;
 }
 
-.login-hint{
+.logout {
   position: absolute;
   right: 28rpx;
   bottom: 0;
-  top:0;
+  top: 0;
   margin: auto;
-  height: 28rpx;
-  font-family: PingFangSC-Regular;
-  margin-right: 0rpx;
-  font-size: 28rpx;
-  color: #999;
+  height: 45rpx;
+  display: flex;
+  flex-direction: row;
+  width: 67rpx;
 }
+
+.avatar-img {
+  width: 45rpx;
+  height: 45rpx;
+  flex: 3.4;
+  margin-right: 12rpx;
+}
+
+.arrow-img {
+  width: 16.1rpx;
+  height: 9.1rpx;
+  flex: 1;
+  margin-top: 17rpx;
+}
+
+.logout-box {
+  position: absolute;
+  right: 23rpx;
+  top: 96rpx;
+  width: 200rpx;
+  height: 80rpx;
+  transition: height 0.3s;
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10); 
+  display: flex;
+  align-items: center;
+}
+
+.logout-box text {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #000000;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .item {
   width: 93.6%;
@@ -29,7 +65,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 8rpx;
-  box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.06);
+  box-shadow: 0 0 8rpx 0 rgba(0, 0, 0, 0.06);
 }
 
 .item image {

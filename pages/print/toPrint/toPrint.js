@@ -1,68 +1,109 @@
 var attendeeId = 0
+var showHis = false
+var printHis
+var remark = ''
 
 Page({
   data: {
     attender: {},
     hisList: [],
     hisCount: 0,
+    showHis: false,
   },
 
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options)
     getApp().print.connectWebSocket()
 
     attendeeId = options.id
+    remark = ''
 
-    this.getAttendeeInfo(options.id)
+    this.getAttendeeInfo(options.id, options.code)
   },
 
-  getAttendeeInfo: function (attenderId) {
+  getAttendeeInfo: function(attenderId, code) {
     var that = this
-    var url = getApp().url.attendeeDetail
-    var params = {
-      attendeeId: attenderId,
-      activityId: 1
+    var url, params = {}
+    if (code) {
+      url = getApp().url.detailByCode
+      params.code = code
+    } else {
+      url = getApp().url.attendeeDetail
+      params = {
+        attendeeId: attenderId,
+        activityId: 1
+      }
     }
- 
+
     function success(data) {
       console.log(data)
-      // var hisLogs = data.actPrintLogList ? JSON.stringify(data.actPrintLogList):[]
+      attendeeId = data.actPrintVO.attendeeId
+      var hisLogs = data.actPrintLogList 
+      if (!hisLogs || hisLogs.length == 0) {
+        showHis = false
+      } else {
+        showHis = true
+        printHis = hisLogs
+      }
       that.setData({
         attender: data.actPrintVO,
-        // hisList: JSON.stringify(data.actPrintLogList),
-        // hisCount: hisLogs ? hisLogs.size:0
+        hisCount: hisLogs.length,
+        showHis: showHis,
+        printHis: printHis,
+        attendeeId: data.actPrintVO.attendeeId
       })
     }
-    getApp().util.sendRequest(url, success,params)
+    getApp().util.sendRequest(url, success, params)
   },
 
-  print: function(){  
+  print: function() {
     var msg = {
       type: "newAttendee",
       cmd: "print",
       activityId: 1,
       attendeeId: attendeeId,
-      printerName : 'YANGQINGHUA-PC:Deli-007',
-      source: 'client'
+      printerName: wx.getStorageSync('printer'),
+      source: 'client',
+      note: remark
     }
     getApp().print.print(JSON.stringify(msg))
   },
 
-  onReady: function () {
-  
+
+  remarkInput: function (e) {
+    remark = e.detail.value.trim()
   },
 
-  onPullDownRefresh: function () {
-  
+  // =================自定义dialog==================
+  toggleDialog() {
+    this.setData({
+      showDialog: !this.data.showDialog
+    });
+  },
+  itemClick: function (e) {
+    var that = this
+
+    var result = e.currentTarget.id
+
+
+    // var result = this.data.value
+    if (result == 'show') {
+      wx.showToast({
+        title: '没有选择打印机',
+      })
+    } else {
+
+
+      wx.setStorageSync('printer', result)
+      that.setData({
+        printerName: result,
+      })
+      that.printable(true)
+    }
+    that.setData({
+      showDialog: !this.data.showDialog
+    })
   },
 
-  onReachBottom: function () {
-  
-  },
-
-
-  onShareAppMessage: function () {
-  
-  }
 })

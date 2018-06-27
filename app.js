@@ -1,4 +1,3 @@
-//app.js
 App({
   util: require('utils/util'),
   url: require('utils/meiaApi'),
