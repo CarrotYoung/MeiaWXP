@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    lastTap = ""
     allDataDic = JSON.parse(options.dataDic);
 
     console.log('得到传输字典')
@@ -97,7 +97,6 @@ Page({
       console.log(allDataDic)
       that.setListData(allDataDic.tapId)
 
-      
     }
 
     function fail() {
@@ -193,7 +192,7 @@ Page({
     var tempArr = new Array();
     tempArr = listArr;
 
-
+   console.log(lastTap)
     if (lastTap != tapId) {   //不是重复点击
 
       lastTap = tapId;
@@ -203,7 +202,7 @@ Page({
 
           tempArr = listArr.filter((item) => { return item.date != '未签到' });
 
-        } else {
+        }else {
 
           tempArr = listArr.filter((item) => { return item.date == '未签到' });
 

@@ -1,43 +1,39 @@
 /* pages/sign/signDetail/signDetail.wxss */
 
-.header-search-box{
-   background: #fff;
-   padding:13rpx 24rpx;
+.header-search-box {
+  background: #fff;
+  /* padding:13rpx 24rpx; */
 }
 
-
-.header-search-box-cnt{
-  background-color: white; 
-  height: 65rpx;
+.header-search-box-cnt {
+  background-color: white;
+  margin: auto;
+  height: 98rpx;
   width: 100%;
-  position: relative;
-  border: 2rpx solid #EBECF3;
-  box-shadow: inset 0 0 6rpx 0 rgba(0,0,0,0.06);
-  border-radius: 100rpx;
-  /* background-color: yellow; */
-
+  display: flex;
+  justify-content: center;
 }
 
-.header-search-box  image {
+/* .header-search-box  image {
   position: absolute;
   width: 25rpx; 
   height: 26rpx; 
   left: 30%;  
   top: 19.5rpx;
+} */
+
+.header-search-box input {
+  border: 2rpx solid #ebecf3;
+  box-shadow: inset 0 0 6rpx 0 rgba(0, 0, 0, 0.06);
+  border-radius: 100rpx;
+  position: relative;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  width: 702rpx;
+  height: 65rpx;
+  background-color: #fff;
+  text-align: center;
 }
-
-.header-search-box input{
-  position: absolute;
-  width: 65%;
-  top:0;
-  left:35%;
-  height:65rpx;
-  text-align: left;
-  font-size: 28rpx;
-  /* background-color: red; */
-  /* flex: 1; */
-} 
-
 
 .sign-status-view{
    position: relative; 
@@ -124,7 +120,7 @@
 .list-item{
   /* margin: 0rpx  0rpx 2rpx 0rpx;  */
   overflow: hidden; 
-  /* box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06); */
+   box-shadow: 0 0 5rpx 0 #E2E2E2; 
   height: 200rpx;
   display: flex;  
   background-color: white;
@@ -192,14 +188,14 @@ person-title-text{
 
 }
 
-.cell-bottom-line{
+/* .cell-bottom-line{ */
  /* border: 1px solid #E2E2E2; */
- position: relative;
- left: 32rpx;
+ /* position: relative;
+ left: 0rpx;
  height: 1rpx;
- background-color: #E2E2E2;
+ background-color: #E2E2E2; */
  /* right: 0rpx; */
  /* bottom: 0rpx; */
  /* flex: 1;  */
 
-} 
+/* }  */

@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "参会证"
+  "navigationBarTitleText": "参会证",
+  "disableScroll": false,
+  "enablePullDownRefresh": true
 }

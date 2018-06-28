@@ -1,0 +1,5 @@
+<view class='launch-view'>
+
+ <image src='{{logo}}' class='logo'></image>
+
+</view>

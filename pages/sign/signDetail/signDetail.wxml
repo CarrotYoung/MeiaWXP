@@ -1,13 +1,13 @@
 <view class='body'>
 
-  <view  class='header-search-box'>
+  <view class='header-search-box'>
     <view class="header-search-box-cnt">
-    <image class="icon-search_in-box" hidden='{{hidden}}' src='/icons/search.png'></image>   
-     <!-- <icon type="search" hidden='{{hidden}}'  size="18"></icon>   -->
-    <input type="text" confirm-type='search' placeholder-style='color:gray' placeholder='输入名称搜索' bindinput='searchValueInput' bindfocus='inputFocus' value='{{searchText}}'> 
-    </input>
-      </view> 
-  </view>  
+      <!-- <image class="icon-search_in-box" hidden='{{hidden}}' src='/icons/search.png'></image>    -->
+      <!-- <icon type="search" hidden='{{hidden}}'  size="18"></icon>   -->
+      <input class='header-input' type="text" confirm-type='search' placeholder-style='font-family: PingFangSC-Regular;font-size: 28rpx;color: #999999;' placeholder='输入名称搜索' bindinput='searchValueInput' bindfocus='inputFocus' value='{{searchText}}'>
+      </input>
+    </view>
+  </view>
 
   <view class='sign-status-view'>
     <view class='sign-status-inter-view'>
@@ -38,5 +38,5 @@
     </block> 
 
   </scroll-view> 
-  
+
 </view>

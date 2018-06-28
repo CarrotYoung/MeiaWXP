@@ -33,10 +33,12 @@
 }
 
 .remark-input {
+  height: 76rpx;
   margin-top: 26rpx;
   background: #fff;
   border: 2rpx solid #c4cbd2;
   border-radius: 4rpx;
+  padding-left: 20rpx;
 }
 
 .remark-place {
@@ -69,15 +71,126 @@
 .all-attendees {
   width: 256rpx;
   height: 56rpx;
-  background: #FFFFFF;
-  border: 2rpx solid #EBECF3;
+  background: #fff;
+  border: 2rpx solid #ebecf3;
   border-radius: 100rpx;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  align-items: center;
 }
 
 .all-attendees text {
   font-family: PingFangSC-Regular;
   font-size: 26rpx;
-  color: #999999;
+  color: #999;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----------------------自定义dialog---------------------- */
+
+.free-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  height: 100%;
+}
+
+.free-dialog__container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 585rpx;
+  background: white;
+  transform: translateY(150%);
+  transition: all 0.4s ease;
+  z-index: 11;
+}
+
+.free-dialog--show .free-dialog__container {
+  transform: translateY(0);
+}
+
+.free-dialog--show .free-dialog__mask {
+  display: block;
+}
+
+/*模态框中的内容*/
+
+.free-button {
+  display: inline-block;
+  width: 100%;
+  height: 85rpx;
+  text-align: center;
+}
+
+.free-button text {
+  position: relative;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333;
+  letter-spacing: 0;
+  top: 10rpx;
+}
+
+.no-content {
+  width: 100%;
+  height: 500rpx;
+  background: #f0eff5;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-content image {
+  width: 80rpx;
+  height: 70.3rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 160rpx;
+}
+
+.no-content text {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 42rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.printer-list {
+  width: 100%;
+  height: 500rpx;
+  background: #fff;
+}
+
+.list-item {
+  /* height: 150rpx; */
+}
+
+.his-log {
+  margin: 3%;
+  margin-bottom: 0rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.log-txt {
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333;
+  letter-spacing: 0;
+  line-height: 45rpx;
+}
+
+.log-date {
+  text-align: right;
 }
