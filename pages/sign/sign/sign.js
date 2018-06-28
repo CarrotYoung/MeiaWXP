@@ -60,6 +60,7 @@ Page({
     var that = this
     var userid = wx.getStorageSync('userid')
     var url = getApp().url.scheduleAttendList + '?scheduleId=' + scheduleId + '&userId=' + userid;
+
     function success(result) {  //回调成功
     var dataBaseDic = result.data.scheduleBaseVO
     listArr = result.data.actAttendeeVOList;  //签到列表
@@ -67,6 +68,10 @@ Page({
     console.log(listArr);
 
     var unsignNum = dataBaseDic.buyNum - dataBaseDic.signCount;
+
+    dataDic.buyNum = dataBaseDic.buyNum;
+    dataDic.signCount = dataBaseDic.signCount
+  
 
     that.setData({
       allNum: dataBaseDic.buyNum,
@@ -266,6 +271,10 @@ Page({
       dataDic.tapId = 'unsignNum';
 
     }
+
+
+    console.log("传输=")
+    console.log(dataDic)
 
     wx.navigateTo({
       url: '../../../pages/sign/signDetail/signDetail' + "?dataDic=" + JSON.stringify(dataDic)
