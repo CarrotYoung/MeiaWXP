@@ -17,9 +17,9 @@ Page({
   },
 
   signClick: function () {
-    var dict2 = { name: 'username', password: 'password' };
+    // var dict2 = { name: 'username', password: 'password' };
     wx.navigateTo({
-      url: '../../pages/sign/signSchedule/signSchedule?testData=' + JSON.stringify(dict2)
+      url: '../../pages/sign/signSchedule/signSchedule'   //+ JSON.stringify(dict2)
     })
   },
 
