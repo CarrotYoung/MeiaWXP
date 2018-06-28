@@ -32,6 +32,7 @@ Page({
       })
     } else {
       wx.showToast({
+        icon: "none",
         title: forbidMsg,
       })
     }
@@ -62,6 +63,7 @@ Page({
       })
     } else {
       wx.showToast({
+        icon: "none",
         title: forbidMsg,
       })
     }
