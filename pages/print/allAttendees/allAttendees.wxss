@@ -105,7 +105,7 @@
 
 .list-item {
   overflow: hidden;
-  box-shadow: 0 0 16rpx 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 5rpx 0 #E2E2E2;
   height: 130rpx;
   background-color: white;
   padding: 30rpx;
@@ -146,3 +146,4 @@
   position: relative;
   top: 17rpx;
 }
+

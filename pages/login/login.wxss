@@ -34,7 +34,7 @@
   height: 96rpx;
   font-size: 28rpx;
   background-color: #fff;
-  color: #999;
+  color: #000;
   padding-left: 24rpx;
 }
 

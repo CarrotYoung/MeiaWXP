@@ -26,7 +26,7 @@ Page({
   },
 
   toPrintCert: function () {
-    if (pgroup == '80001' || pgroup == '80002' || pgroup == '80003' || pgroup == '90001') {
+    if (pgroup == '80001' ||  pgroup == '80003' || pgroup == '90001') {
       wx.navigateTo({
         url: '../print/prePrint/prePrint'
       })
@@ -56,7 +56,7 @@ Page({
 
   signClick: function () {
 
-    if (pgroup == '80001' || pgroup == '80002' || pgroup == '80004' ||pgroup == '90001') {
+    if (pgroup == '80001' || pgroup == '80004' ||pgroup == '90001') {
       wx.navigateTo({
         url: '../sign/signSchedule/signSchedule'
       })

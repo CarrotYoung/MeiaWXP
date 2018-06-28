@@ -60,6 +60,7 @@ Page({
           })
         } else {
           wx.showToast({
+            icon: "none",
             title: data.msg
           })
         }
