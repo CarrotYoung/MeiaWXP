@@ -1,34 +1,48 @@
 <view class='body'>
 
-  <view  class='header-search-box'>
-    <input class="header-input" confirm-type='search' placeholder-style='font-family: PingFangSC-Regular;font-size: 28rpx;color: #999999;' placeholder='输入名称搜索' bindinput='searchValueInput'>
-    </input> 
-  </view>  
-
-
-  <view class='sign-status-view'>
-    <view class='sign-status-inter-view'>
-      <text class='header-tb' bindtap='selectTap' id='allNum'>全部</text>
-      <text class='header-tb' bindtap='selectTap' id='signNum'>已打印</text> 
-      <text class='header-tb' bindtap='selectTap' id='unsignNum'>未打印</text> 
-      <view class='center-left-line'></view>    
-      <view class='center-right-line'></view> 
-      <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>   
+  <view class='header-div'>
+    <view class='header-search-box'>
+      <input class="header-input" confirm-type='search' placeholder-style='font-family: PingFangSC-Regular;font-size: 28rpx;color: #999999;' placeholder='输入名称搜索' bindinput='searchValueInput' confirm-type="search" value='{{searchName}}'>
+      </input>
     </view>
+
+    <view class='border-line'></view>
+
+    <view class='sign-status-view'>
+      <view class='sign-status-inter-view'>
+        <text class='header-tb' bindtap='selectTap' id='print-all' style='color:{{currPrintType==0?"#45BC00":"#666666"}}'>全部</text>
+        <text class='header-tb' bindtap='selectTap' id='print-done' style='color:{{currPrintType==1?"#45BC00":"#666666"}}'>已打印</text>
+        <text class='header-tb' bindtap='selectTap' id='print-todo' style='color:{{currPrintType==2?"#45BC00":"#666666"}}'>未打印</text>
+        <view class='center-left-line'></view>
+        <view class='center-right-line'></view>
+        <view class='bottom-line' style='left:{{btmLineLeft}}%'></view>
+      </view>
+    </view>
+
+    <view class='border-line bottom'></view>
+
+
   </view>
 
-   <!-- 列表 -->
+
+  <!-- 列表 -->
   <scroll-view scroll-y="true" class='sign-list'>
     <block wx:for-items="{{attendeeList}}" wx:key="{{item.id}}">
-        <view class='list-item' id="{{item.id}}" bindtap='itemClick'>
-            <text class="name-text">{{item.name}}</text>
-            <text class="company-text">{{item.company}}</text> 
-            <text class="status-text">{{item.signtime?'已打印':'未打印'}}</text>  
-        </view>  
-    </block> 
+      <view class='list-item' id="{{item.attendeeId}}" bindtap='itemClick'>
+        <view class='name-status'>
+          <text class="name-text">{{item.attendeeName}}</text>
+          <text class="status-text">{{item.status==1?'已打印':'未打印'}}</text>
+        </view>
 
-  </scroll-view> 
+        <view class='company-status'>
+          <text class="company-text">{{item.company}}</text>
+          <text class="company-text">{{item.position}}</text>
+        </view>
+      </view>
+    </block>
 
- 
+  </scroll-view>
+
+
 
 </view>

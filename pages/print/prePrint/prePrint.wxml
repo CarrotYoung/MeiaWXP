@@ -2,22 +2,24 @@
 
   <view class='select-printer'>
     <text>{{selectPrinter}}</text>
-    <picker range='{{printerList}}' mode='selector' >
-      <view class='selector-detail'>
-        <text>{{printerName}}</text>
-        <image src='{{arrowDown}}'></image>
-      </view>
-    </picker>
+    <!-- <picker range='{{printerList}}' mode='selector'> -->
+    <view class='selector-detail' bindtap='toggleDialog'>
+      <text>{{printerName}}</text>
+      <image src='{{arrowDown}}'></image>
+    </view>
+    <!-- </picker> -->
   </view>
 
   <view class='scan-hint'>
     <text>{{scanQrHint}}</text>
   </view>
 
-  <view class='scan-background'>
-    <view class='scan-button' bindtap='scanQr'>
-      <image src='{{scanQrIc}}'></image>
-      <text>{{scanQrTxt}}</text>
+  <view id='scan-area' style="background:{{scanAble?'rgba(69,188,0,0.06)':'rgba(185,185,185,0.06);'}}">
+    <view class='scan-background' style="background:{{scanAble?'rgba(69,188,0,0.20)':'rgba(185,185,185,0.20);'}}">
+      <view class='scan-button' bindtap='scanQr' style="background:{{scanAble?'rgba(69,188,0,1)':'rgba(185,185,185,1);'}}">
+        <image src='{{scanQrIc}}'></image>
+        <text>{{scanQrTxt}}</text>
+      </view>
     </view>
   </view>
 
@@ -26,5 +28,36 @@
       <text>所有参会者</text>
     </view>
   </view>
-  
+
+  <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+    <view class="free-dialog__mask" bindtap="toggleDialog" />
+    <view class="free-dialog__container">
+      <view style='display:flex;flex-direction: column'>
+
+        <view class="free-button">
+          <text>选择打印机</text>
+        </view>
+
+        <view class='border-line' />
+
+        <view class='no-content' style='display:{{hasPrinter?"none":"flex"}};'>
+          <image src='{{noPrinterImg}}' bindtap='reloadPrinter'></image>
+          <text>找不到打印机，请检查网络连接，或点击图标刷新</text>
+        </view>
+
+        <scroll-view scroll-y="true" class='printer-list' style='display:{{!hasPrinter?"none":"block"}};'>
+          <block wx:for-items="{{printerList}}" wx:key="{{item}}">
+            <view class='list-item' id="{{item}}" bindtap='itemClick'>
+              <icon type='success_no_circle' size='25' style='display:{{item != printerName?"none":"inline-block"}};'></icon>
+              <text>{{item}}</text>
+            </view>
+            <view class='border-line' style='margin-left:88rpx;'></view>
+          </block>
+
+        </scroll-view>
+
+      </view>
+    </view>
+  </view>
+
 </view>

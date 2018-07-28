@@ -2,7 +2,10 @@
 
 var listArr = new Array
 var id = 0
-var lastTap =  "allNum"
+var lastTap =  ""
+var allDataDic = {}
+var signTapId = 0
+var thisTapId;
 
 Page({
 
@@ -10,33 +13,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-   allNum:"100"
+   allNum:"100",
+   rightArrowImg: getApp().icon.rightArrow,
+   hidden: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    lastTap = ""
+    allDataDic = JSON.parse(options.dataDic);
 
-    var dataDic = JSON.parse(options.dataDic);
-    id = dataDic.id;   //日程id
-    var room = dataDic.room;
-    console.log("dataDic================" + JSON.stringify(dataDic))
+    console.log('得到传输字典')
+    console.log(allDataDic)
+
+    id = allDataDic.id;   //日程id
+    var room = allDataDic.room;
+    console.log("allDataDic================" + JSON.stringify(allDataDic))
     var title = room + '场签到'
     //设置导航栏
     wx.setNavigationBarTitle({
       title: title
     })
 
-    var unsignNum = dataDic.buyNum - dataDic.signCount;
+    var unsignNum = allDataDic.buyNum - allDataDic.signCount;
 
     this.setData({
-      signStatus: dataDic.signStatus,
-      allNum: dataDic.buyNum,
-      signNum: dataDic.signCount,
+      signStatus: allDataDic.signStatus,
+      allNum: allDataDic.buyNum,
+      signNum: allDataDic.signCount,
       unsignNum: unsignNum
     });
 
+    this.setTap(allDataDic.tapId)
+    // thisTapId = allDataDic.tapId;
     this.getSignListData(id)
   
   },
@@ -59,9 +70,10 @@ Page({
       var j = 0
       for (j = 0; j < dataArr.length; j++) {
         var dataDic = dataArr[j];
-        var status = dataArr.status;
+        var status = dataDic.status;
         var color = 'red';
         var dateText = dataDic.chooseTime; //已经签到
+        dateText = dateText.substr(11,8)
         var  indexTop = 200*j+30;
         if(status == 1) //已经签到
         {
@@ -71,17 +83,20 @@ Page({
           dateText = '未签到';
         }
 
-        var dic = { "name": dataDic.name, "title": dataDic.company + dataDic.position, "date": dateText, 'dateColor': color, 'indexTop': indexTop};
+        var dic = { "name": dataDic.name, "company": dataDic.company  ,"position": dataDic.position, "date": dateText, 'dateColor': color, 'indexTop': indexTop};
         
         listArr.push(dic)
       }
 
       // console.log('indexTop=' + listArr)
-      that.setData({
-        list: listArr
-      })
+      // that.setData({
+      //   list: listArr
+      // })
 
-      
+      console.log('tapId=' + allDataDic.tapId)
+      console.log(allDataDic)
+      that.setListData(allDataDic.tapId)
+
     }
 
     function fail() {
@@ -93,59 +108,119 @@ Page({
 
     getApp().util.sendRequest(url, success, "", "", 'GET')
 
-
   },
 
   searchValueInput: function (e) {
     var name = e.detail.value;
+
+    if (name.length == 0){
+      this.setData({
+        hidden: ''
+      })
+    }else{
+      this.setData({
+        hidden: 'hidden'
+      })
+
+    }
+
     console.log('搜索值');
     console.log(name);
     this.getSignListData(id, name)
   },
 
-  selectTap:function(e){
+  //输入聚焦
+  inputFocus: function () {
+    // this.hiddenOptionTap()
+    // this.setData({
+    //   hidden: 'hidden'
+    // })
+
+  },
+
+
+  selectTap: function (e){
+
+    this.setTap(e.target.id);
+    this.setListData(e.target.id);
+
+  },
+
+  setTap: function (tapId){
+
     var left = 0
+   
+    console.log('数组=====了')
+    console.log(listArr)
+    console.log(tapId)
+    var allColor = '#666666';
+    var signColor = '#666666';
+    var unsignColor = '#666666';
+    if (tapId == 'allNum'){
+        left = 0.1166;
+        allColor = '#45BC00';
+       
+    } else if (tapId == 'signNum'){
+
+       left = 0.4499;
+       signColor = '#45BC00';
+
+    } else if (tapId == 'unsignNum'){
+       left = 0.7832;
+       unsignColor = '#45BC00';
+    }
+    console.log('left='+left)
+    console.log('allColor=' + allColor)
+
+    this.setData({
+      btmLineLeft: left * 100,
+      allColor: allColor,
+      signColor: signColor,
+      unsignColor: unsignColor
+    })
+
+
+  },
+
+
+  setListData: function (tapId){
+
+
+    console.log('数据筛选')
+
     //数组筛选
     var tempArr = new Array();
     tempArr = listArr;
-    
-    if(e.target.id == 'allNum'){
-        left = 0.1;
 
-    }else if (e.target.id == 'signNum'){
+   console.log(lastTap)
+    if (lastTap != tapId) {   //不是重复点击
 
-      left = 0.45;
+      lastTap = tapId;
+      if (tapId != 'allNum') {
 
-    } else if (e.target.id == 'unsignNum'){
-      left = 0.75;
+        if (tapId == 'signNum') {
 
-    }
-    console.log('left='+left)
+          tempArr = listArr.filter((item) => { return item.date != '未签到' });
 
-    if (lastTap != e.target.id){
+        }else {
 
-      lastTap = e.target.id;
-      if (e.target.id != 'allNum') {
-
-        if (e.target.id == 'signNum'){
-          tempArr = listArr.filter((item) => { return item.date != '未签到'});
-        }else{
           tempArr = listArr.filter((item) => { return item.date == '未签到' });
+
         }
+
+      } else {
+
+        tempArr = listArr;
 
       }
 
-      this.setData({
-        btmLineLeft: left * 100,
-        list: tempArr
-
-      })
-
-
     }
 
-    
-    
+    console.log('输出临时数组')
+    console.log(tempArr)
+    this.setData({
+      list: tempArr,
+    })
 
 
   },

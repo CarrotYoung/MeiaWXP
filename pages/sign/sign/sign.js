@@ -7,6 +7,7 @@ var scanQrHint = '点击扫码开始签到'
 var scanQrTxt = '扫码'
 var scheduleId = 0  //日程id
 var listArr = new Array()
+var dataDic 
 
 
 Page({
@@ -22,7 +23,6 @@ Page({
     scanQrHint: scanQrHint,
     scanQrTxt: scanQrTxt,
     scanQrIc: getApp().icon.scanQr,
-
   },
 
   /**
@@ -30,7 +30,7 @@ Page({
    */
   onLoad: function (options) {
 
-    var dataDic = JSON.parse(options.dataDic);
+    dataDic = JSON.parse(options.dataDic);
     scheduleId = dataDic.id; //日程id
     var room = dataDic.room;
     console.log("dataDic================" + JSON.stringify(dataDic))
@@ -51,7 +51,6 @@ Page({
       signNum: dataDic.signCount,
       unsignNum: unsignNum
     });
-
     
 
   },
@@ -61,6 +60,7 @@ Page({
     var that = this
     var userid = wx.getStorageSync('userid')
     var url = getApp().url.scheduleAttendList + '?scheduleId=' + scheduleId + '&userId=' + userid;
+
     function success(result) {  //回调成功
     var dataBaseDic = result.data.scheduleBaseVO
     listArr = result.data.actAttendeeVOList;  //签到列表
@@ -68,6 +68,10 @@ Page({
     console.log(listArr);
 
     var unsignNum = dataBaseDic.buyNum - dataBaseDic.signCount;
+
+    dataDic.buyNum = dataBaseDic.buyNum;
+    dataDic.signCount = dataBaseDic.signCount
+  
 
     that.setData({
       allNum: dataBaseDic.buyNum,
@@ -249,5 +253,32 @@ Page({
       //   console.log(res.result)
       },
     })
+  },
+
+  //跳转到签到详情页
+  toSignDetail: function (e) {
+
+    if (e.target.id == 'allNum') {
+
+      dataDic.tapId = 'allNum';
+
+    } else if (e.target.id == 'signNum') {
+
+      dataDic.tapId = 'signNum';
+
+    } else if (e.target.id == 'unsignNum') {
+
+      dataDic.tapId = 'unsignNum';
+
+    }
+
+
+    console.log("传输=")
+    console.log(dataDic)
+
+    wx.navigateTo({
+      url: '../../../pages/sign/signDetail/signDetail' + "?dataDic=" + JSON.stringify(dataDic)
+    })
+
   }
 })

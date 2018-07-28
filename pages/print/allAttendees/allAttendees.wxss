@@ -1,3 +1,8 @@
+.header-div {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
 .header-search-box {
   background-color: white;
   margin: auto;
@@ -7,129 +12,138 @@
   justify-content: center;
 }
 
- .header-input{
-  border: 2rpx solid #EBECF3;
-  box-shadow: inset 0 0 6rpx 0 rgba(0,0,0,0.06);
+.header-input {
+  border: 2rpx solid #ebecf3;
+  box-shadow: inset 0 0 6rpx 0 rgba(0, 0, 0, 0.06);
   border-radius: 100rpx;
   position: relative;
   margin-left: 10rpx;
-  margin-right:10rpx;
+  margin-right: 10rpx;
   width: 702rpx;
   height: 65rpx;
   background-color: #fff;
   text-align: center;
 }
 
-.sign-status-view{
-   position: relative; 
-   top: 1rpx;
-   background-color: #fff;
-   width: 100%; 
-   height: 90rpx;
-   display: flex; 
-   flex-direction: row;  
-   justify-content: center;     
- }  
+.sign-status-view {
+  position: fixed;
+  z-index: 9;
+  top: 100rpx;
+  background-color: #fff;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
-.sign-status-inter-view{
-   background-color: #fff;
-   width: 99%; 
-   height: 100%;
-   display: flex;
-   flex-direction: row;  
-   justify-content: space-around;  
+.sign-status-inter-view {
+  background-color: #fff;
+  width: 99%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
- }
-
-.header-tb{
-  position: relative; 
+.header-tb {
+  position: relative;
   width: 33%;
   height: 40rpx;
   top: 10rpx;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
   padding: 10rpx 10rpx;
-  text-align: center
- }
+  text-align: center;
+}
 
-.center-left-line{
-   position:absolute;
-   left: 33%;
-   top: 36%;
-   width:3rpx;
-   height:27rpx;
-   background-color:#EBECF3; 
- }
-
-.center-right-line{
-   position:absolute;
-   left: 66%;
-   top: 36%;
-   width:3rpx;
-   height:27rpx;
-   background-color:#EBECF3;
- }
-
- .bottom-line{
+.center-left-line {
   position: absolute;
-  background-color: #45BC00;
+  left: 33%;
+  top: 36%;
+  width: 3rpx;
+  height: 27rpx;
+  background-color: #ebecf3;
+}
+
+.center-right-line {
+  position: absolute;
+  left: 66%;
+  top: 36%;
+  width: 3rpx;
+  height: 27rpx;
+  background-color: #ebecf3;
+}
+
+.bottom-line {
+  position: absolute;
+  background-color: #45bc00;
   height: 4rpx;
   width: 100rpx;
   left: 10%;
   bottom: 15%;
   border-radius: 100px;
- }
- 
-.sign-list{
-  height: 90%;
+}
+
+.bottom {
+  height: 10rpx;
+  position: fixed;
+  z-index: 9;
+  top: 190rpx;
+}
+
+.sign-list {
+  height: auto;
   width: 100%;
-  margin: auto;
-  margin-top: 20rpx;
-  background-color: whitesmoke;
-  
+  /* margin: auto; */
+  /* margin-top: 200rpx;  */
+  position: absolute;
+  z-index: 1;
+  top: 200rpx;
 }
 
-
-.list-item{
-  overflow: hidden; 
-  box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06);
-  height: 200rpx;
+.list-item {
+  overflow: hidden;
+  box-shadow: 0 0 5rpx 0 #E2E2E2;
+  height: 130rpx;
   background-color: white;
+  padding: 30rpx;
 }
 
-.name-text{
- position: relative;
- font-family: PingFangSC-Medium;
- font-size: 32rpx;
- color: #333333;
- width: 100rpx;
- height: 45rpx;
- left: 30rpx;
- top: 30rpx;
+.name-status {
+  display: flex;
+  flex-direction: row;
 }
 
-.company-text{
- position: absolute;
- font-family: PingFangSC-Regular;
- font-size: 26rpx;
- color: #333333;
- width: auto;
- height: 74rpx;
- left: 30rpx;
- margin-top: 90rpx;
-
+.status-text {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999;
+  flex: 1;
+  text-align: right;
 }
 
-.status-text{
- font-family: PingFangSC-Regular;
- font-size: 26rpx;
- color: #999999; 
- width: auto;
- height: auto;
- position: absolute; 
- right: 20rpx;
- top: 30rpx;
- display: inline-block;
- background: #00ff00;
+.name-text {
+  float: left;
+  position: relative;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  flex: 1;
 }
+
+.company-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-text {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #333;
+  position: relative;
+  top: 17rpx;
+}
+

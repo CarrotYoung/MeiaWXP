@@ -13,15 +13,13 @@ function sendRequest(url, suc, obj, method, fail) {
   wx.showLoading({
     title: '加载中..',
   })
-  // 自动给url加上域名前缀
-  // if (url && url.indexOf('https://meia.me/')) {
-  //   console.log(url)
-  // }
+
+  //TODO 自动加domain前缀
 
   if ((url && url.indexOf('token') <1) || (obj && !obj.token)) {
     if (!obj) obj = {}
-    obj.token = wx.getStorageSync('token')
-    obj.userid = wx.getStorageSync('userid')
+    // obj.token = wx.getStorageSync('token')
+    obj.userId = wx.getStorageSync('userid')
   }
 
   method = method || 'GET'
